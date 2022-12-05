@@ -1,0 +1,387 @@
+@font-face {        
+  font-family: Poppins;
+  src: url("../public/Poppins-Regular.ttf");
+}
+@font-face {        
+  font-family: Poppinsbold;
+  src: url("../public/Poppins-Bold.ttf");
+}
+@font-face {
+  font-family: "fontAwesome";
+  font-weight: normal;
+  font-style : normal;
+         src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+         src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"),
+               url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
+               url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
+               url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
+               url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+  }
+  
+/* Generales */
+  a{  text-decoration: none;}
+  nav{height: 15vh; margin-top: 5%;}
+  hr{ 
+    margin-top: 7px;
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         150px;
+    width:          1px;   
+  }
+  p{
+    font-family: 'Poppins';
+  }
+  .hrAbout{
+    margin-top: 7px;
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         70px;
+    width:          1px;
+    opacity: 0.2;
+  }
+  .margins{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .marginsPokemons{
+    margin-left: 7%;
+    margin-right: 1%;
+  }
+  .container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 92%;
+    height: 85vh;
+  }
+  .bodyPokemon{
+    display: grid;
+    height: 150px;
+  }
+  .footerPokemon{
+    display: grid;
+    height: 52px;
+    text-align: center;
+    align-items: center;
+    color: white;
+    font-family: 'Poppins';
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; 
+    margin: -1px;
+  }
+  .headerPokemon{
+    text-align: end;
+    margin-right: 5px;
+    font-family: 'Poppins';
+  }
+
+.pokemonContainerBank{
+  margin-top: 2vw;
+  display: grid;
+  height: 200px;
+  cursor: pointer;
+  margin-right: 2vw;
+}
+.divImagePokemon{
+  display: grid;
+  justify-content: center;
+}
+.imgPokemon{
+  width: 100px;
+  height: 100px;
+}
+
+/* Especificos */
+
+.title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 60%;
+  align-items: center;
+}
+.logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.imageLogo{
+  height: 35px;
+  display: flex;
+}
+.textTitle{
+  font-family: 'Poppinsbold';
+  font-size: 32px;
+  display: flex;
+}
+.typeOrder{
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  font-family: 'Poppins';
+}
+.arrowNav{
+  height: 23px;
+}
+.searchBar {
+  display: flex;
+  justify-content: center;
+}
+.fontAw{
+  font-family: FontAwesome, 'Poppins';
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  width: 90%;
+  height: 22px;
+  border-radius: 7px;
+  border-color: lightgrey;
+  border-style: groove; 
+}
+.borderPokemon{
+  width: 26vw;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+}
+
+/*Pokemon Selected*/
+.pokemonContainer{
+  width: 100vw;
+  height: 100vh;
+}
+.backgroundPokemon{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 35vh 65vh;
+  width: 100vw;
+  height: 100vh;
+}
+.divHeaderPokemonBank {
+  display: grid;
+  grid-area: 1/1/2/2;
+  filter: invert(1000%) sepia(0%) saturate(7499%) hue-rotate(125deg) brightness(1000%) contrast(100%);;
+}
+
+.pokeballBackground{
+  position: absolute;
+  opacity: 0.2;
+  right: 10px;
+  top: 15px;
+  height: 270px;
+  pointer-events: none;
+}
+.headerPokemonBank{
+  display: grid;
+  height: 55%;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 100%;
+  opacity: 1;
+  align-items: center;
+}
+.nameAndArrow{
+  display: flex;
+  grid-area: 1/1/2/2;
+  flex-direction: row;
+  align-items: center;
+}
+.idPokemons{
+  display: grid;
+  grid-area: 1/2/2/3;
+  font-size: medium;
+  font-family: 'PoppinsBold'; 
+  margin-right: 15%;
+  text-align: end;
+}
+
+.pokemonArrow{
+  height: 35px;
+  display: flex;
+  transform: rotate(90deg);
+  width: 40px;
+  justify-self: left;
+  margin-left: 10px;
+}
+
+.pokemonName{
+  display: flex;
+  font-size: 32px;
+  font-family: 'PoppinsBold';
+  justify-self: left;
+  margin-left: 5px;
+}
+
+.barCompleted {
+  height: 10px;
+  border-radius: 15px;
+}
+
+.barLabel {font-size: 0px;}
+
+.imgPokemonBig{
+  position: absolute;
+  top: 13%;
+  left: 22%;
+  height: 250px;
+}
+
+.leftDot{
+  position: absolute;
+  font-size: xx-large;
+  left: 30px;
+  bottom: 15px;
+  font-family: 'Poppins';
+}
+
+.rightDot{
+  position: absolute;
+  font-size: xx-large;
+  right: 30px;
+  bottom: 15px;
+  font-family: 'Poppins';
+}
+
+
+.bodyPokemons{
+  display: grid;
+  grid-area: 2/1/3/2;
+  background-color: white;
+  width: 98%;
+  height: 99%;
+  margin-left: 1%;
+  margin-right: 1%;
+  border-radius: 10px;
+  grid-template-columns: 100%;
+  grid-template-rows: 15% 35% 50%;
+}
+.typesPokemon{
+  display: flex;
+  grid-area: 1/1/2/2;
+  justify-content: center;
+  margin-top: 45px;
+  gap: 10px;
+}
+.buttonPokemon{
+  width: 80px;
+  height: 100px;
+  height: fit-content;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  font-family: 'Poppins';
+
+}
+.aboutPokemon{
+  display: grid;
+  grid-area: 2/1/3/2;
+  grid-template-columns: 30% 2% 31% 2% 35%;
+  grid-template-rows: 35% 45% 20%;
+  text-align: center;
+  justify-self: center;
+  font-size: 14px;
+  font-family: 'Poppins';
+  justify-items: center;
+}
+.titleAbout{
+  display: grid;
+  grid-area: 1/1/2/6;
+  font-family: 'PoppinsBold';
+  font-size: 24px;
+  align-items: center;
+}
+
+.weightAbout{
+  display: flex;
+  grid-area: 2/1/3/2;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 100%;
+  grid-template-rows: 70% 30%;
+  flex-direction: column;
+}
+.infoAboutStat{
+  display: flex;
+  grid-area: 1/1/1/1;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+.hrLeftSide{
+  display: flex;
+  grid-area: 2/2/3/3;
+}
+.titleAboutStats{
+  display: grid;
+  grid-area: 2/1/3/2;
+  color: #e0e0e0;
+  font-size: 10px;
+  font-family: 'PoppinsBold';
+  align-self: center;
+  text-align: center;
+}
+
+.heightAbout{
+  display: grid;
+  grid-area: 2/3/3/4;
+}
+.hrLeftSide{
+  display: flex;
+  grid-area: 2/4/3/5;
+}
+.movesAbout{
+  display: grid;
+  grid-area: 2/5/3/6;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+}
+.descriptionAbout{
+  display: grid;
+  grid-area: 3/1/4/6;
+  text-align: left;
+  font-size: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.baseStats{
+  display: grid;
+  grid-template-columns: 10% 5% 10% 75%;
+  grid-template-rows: 20% 80%;
+}
+.labelStat{
+  text-align: right;
+  height: 1px;
+  font-size: 12px;
+  font-family: 'PoppinsBold';
+}
+.divLabelStat{
+  font-family: 'PoppinsBold';
+  margin-left: 10px;
+  display: flex;
+  grid-area: 2/1/3/2;
+  flex-direction: column;
+  width: 30px;
+}
+.hrMid{
+  grid-area: 2/2/3/3;
+}
+.divLabelStatPokemon{
+  display: flex;
+  grid-area: 2/3/3/4;
+  flex-direction: column;
+  width: 10px;
+}
+.divProgressBar{
+  display: flex;
+  grid-area: 2/4/3/5;
+  flex-direction: column;
+  margin-right: 5%;
+}
+
+.baseStatslbl{
+  display: grid;
+  grid-area: 1/1/2/5;
+  text-align: center;
+  font-family: 'PoppinsBold';
+}
