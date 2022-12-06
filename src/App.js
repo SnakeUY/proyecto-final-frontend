@@ -5,7 +5,7 @@ import PokemonList from './App/List/PokemonList';
 import {pokemon}  from './Database/db';
 import CardInformation from './App/Cards/Card-information';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import { getPokemons } from './services/backend-connection';
 
 function PokemonGrid (){
   const [pokemonList,setPokemonList] = useState (pokemon)
@@ -14,7 +14,12 @@ function PokemonGrid (){
 
   useEffect(()=>{
     async function fetchData(){
-      let aux=[]
+      getPokemons(pokemon=>{
+        setPokemonList(pokemon)
+        console.log(pokemon)
+      })
+      console.log(pokemonList)
+      /*let aux=[]
         for (let index = 1; index < 58; index++) {
           await fetch("https://pokeapi.co/api/v2/pokemon/"+index)
           .then((data)=>data.json())
@@ -35,7 +40,7 @@ function PokemonGrid (){
               "spd":data.stats[5].base_stat,
           })
           })
-        }
+        }*/
         ///setPokemonList(aux)
     }
     fetchData()
