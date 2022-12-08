@@ -7,6 +7,7 @@ import CardInformation from './App/Cards/Card-information';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { getPokemons } from './services/backend-connection';
 import Login from './App/Login/login';
+import Card from './App/Cards/Card';
 
 function PokemonGrid (){
   const [pokemonList,setPokemonList] = useState (pokemon)
@@ -73,7 +74,6 @@ function PokemonGrid (){
                pokemonSearch={pokemonSearch}
                search={setPokemonSearch}/>
         </div>
-            
         <PokemonList 
             list={pokemonList.filter((pokemon)=>pokemon.name.toLowerCase().includes(pokemonSearch.toLowerCase()))}/>
     </>

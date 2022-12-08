@@ -1,9 +1,11 @@
 import React from "react";
 import Card from "../Cards/Card";
+import NewPokemonBox from "../Cards/New-pokemon";
 
 const PokemonList = ({list}) =>{
     return(
         <div className="list-container">
+            <NewPokemonBox/>
             {
                 list.map((pokemon)=>{
                     return (
@@ -17,6 +19,7 @@ const PokemonList = ({list}) =>{
                 })
             }
         </div>
+       
     )
 }
 export default PokemonList;

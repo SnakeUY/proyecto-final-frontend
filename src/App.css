@@ -46,6 +46,7 @@ a{
   width: 100vw;
   height: 100vh;
   overflow: scroll;
+  background-color: #f7f7f7;
 }
 
 ::-webkit-scrollbar {
@@ -53,10 +54,9 @@ a{
 }
 
 .app-navbar{
-  width: 100vw;
+  width: 47%;
   height: 20vh;
   display: flex;
-  justify-content: center;
 }
  
 .navbar{
@@ -114,11 +114,10 @@ align-items: center;
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: baseline;
   flex-wrap: wrap;
   margin-top: 2vh;
-  background-color: #f7f7f7;
   z-index: 0;
 }
 
@@ -405,6 +404,17 @@ flex-direction: column;
 }
 
 /*TYPE COLORS*/
+
+.new-pokemon{
+  background-color: black;
+}
+.new-pokemon-border{
+  border: 2px solid black;
+}
+
+.new-pokemon-color-txt{
+  color: black;
+}
 
 .grass{
   background-color:#74CB48;
