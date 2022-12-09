@@ -8,19 +8,18 @@ const PokemonList = ({list}) =>{
             <NewPokemonBox/>
             {
                 list.map((pokemon)=>{
+                    let pokemonTypeOne = pokemon.idtype_types[0].type
                     return (
-                        
                         <Card key={pokemon.id}
-                        type={`${pokemon.type[0].toLowerCase()}-border ${pokemon.type[0].toLowerCase()}-color-txt box`} 
+                        type={`${pokemonTypeOne.toLowerCase()}-border ${pokemonTypeOne.toLowerCase()}-color-txt box`} 
                         number={`${pokemon.id}`}
                         pokemon={`./Imagenes/${pokemon.name.toLowerCase()}.png`}
-                        title={`${pokemon.type[0].toLowerCase()} name-box`}
+                        title={`${pokemonTypeOne.toLowerCase()} name-box`}
                         name={`${pokemon.name}`}/>
                     )
                 })
             }
         </div>
-       
     )
 }
 export default PokemonList;

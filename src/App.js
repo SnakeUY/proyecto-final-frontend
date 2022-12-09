@@ -10,7 +10,7 @@ import Login from './App/Login/login';
 import NewPokemonForm from './App/New-Pokemon/New-pokemon-form';
 
 function PokemonGrid (){
-  const [pokemonList,setPokemonList] = useState (pokemon)
+  const [pokemonList,setPokemonList] = useState ([])
   const [pokemonOrder,setPokemonOrder] = useState ("#")
   const [pokemonSearch, setPokemonSearch] = useState ("")
 
