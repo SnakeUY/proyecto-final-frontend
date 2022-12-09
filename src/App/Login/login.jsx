@@ -34,7 +34,7 @@ const Login = () =>{
 
     }
     return(
-        <div className="background-login">
+        <div className="background-login form-container">
                 <form className="login-inputs" action="#">
                 {formError && 
                 <div className="alert alert-danger" role="alert">
@@ -53,7 +53,7 @@ const Login = () =>{
                         onChange={(e) => setPassword(e.target.value)} 
                         name="password"/>
 
-                    <button className="login-button" onClick={handleClick}>Comenzar</button>
+                    <button className="enter-button" onClick={handleClick}>Comenzar</button>
                 </form>           
         </div>
     )

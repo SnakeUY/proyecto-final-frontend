@@ -7,7 +7,7 @@ import CardInformation from './App/Cards/Card-information';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { getPokemons } from './services/backend-connection';
 import Login from './App/Login/login';
-import Card from './App/Cards/Card';
+import NewPokemonForm from './App/New-Pokemon/New-pokemon-form';
 
 function PokemonGrid (){
   const [pokemonList,setPokemonList] = useState (pokemon)
@@ -86,7 +86,8 @@ function App() {
     <BrowserRouter>
         <div className="App">
           <Routes>
-          <Route path='/login' element={<Login/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/addpokemon' element={<NewPokemonForm/>} />
             <Route path='/' element={<PokemonGrid/>}/>
             <Route path='/:id' element={<CardInformation/>}/>
           </Routes>

@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../Cards/Card";
-import NewPokemonBox from "../Cards/New-pokemon";
+import NewPokemonBox from "../New-Pokemon/New-pokemon";
 
 const PokemonList = ({list}) =>{
     return(
