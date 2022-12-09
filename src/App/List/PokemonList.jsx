@@ -9,6 +9,7 @@ const PokemonList = ({list}) =>{
             {
                 list.map((pokemon)=>{
                     return (
+                        
                         <Card key={pokemon.id}
                         type={`${pokemon.type[0].toLowerCase()}-border ${pokemon.type[0].toLowerCase()}-color-txt box`} 
                         number={`${pokemon.id}`}
@@ -23,3 +24,4 @@ const PokemonList = ({list}) =>{
     )
 }
 export default PokemonList;
+
