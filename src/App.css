@@ -18,7 +18,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 5vh;
 }
 
@@ -33,22 +33,28 @@ body{
 
 .form-inputs{
   height: 50%;
-  width: 50%;
+  width: 30%;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
-  flex-wrap: wrap;
-  gap: 3%;
+  gap: 5%;
+}
+
+.input-stats-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .input-stats{
-  width: 30%;
-  height: 30px;
-  border-radius: 0.5rem;
+  width: 50%;
+  height: 20px;
+  margin: 2%;
   border: solid #666666 1px;
   background-color: white;
-  text-align: center;
+  border-radius: 1rem;
+  text-align:left;
+  padding-left: 2%;
 }
 
 .enter-button{
@@ -58,6 +64,17 @@ body{
   border-radius: 1rem;
   width: 10vh;
   height: 40px;
+}
+
+.add-pokemon-image{
+  border: solid gray 2px;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 40%;
+
 }
 
 a{
@@ -135,7 +152,8 @@ align-items: center;
   border-radius: 0.5rem;
   border: solid #666666 1px;
   background-color: white;
-  text-align: center;
+  text-align: left;
+  padding-left: 5%;
 }
 
 .list-container{
@@ -149,8 +167,6 @@ align-items: center;
   z-index: 0;
   margin-left: 5%;
 }
-
-
 
 .mini{
     width: 70%;
