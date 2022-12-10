@@ -13,7 +13,6 @@ function PokemonGrid (){
   const [pokemonList,setPokemonList] = useState ([])
   const [pokemonOrder,setPokemonOrder] = useState ("#")
   const [pokemonSearch, setPokemonSearch] = useState ("")
-
   useEffect(()=>{
     async function fetchData(){
       getPokemons(pokemon=>{
@@ -48,7 +47,6 @@ function PokemonGrid (){
     fetchData()
   },[]
   )
-  
   const changeOrder = () =>{
     if (pokemonOrder === "#"){
      let changedOrder = pokemonList.sort((a, b) => {
@@ -81,15 +79,18 @@ function PokemonGrid (){
 }
 
 function App() {
- 
   return(
     <BrowserRouter>
         <div className="App">
           <Routes>
             <Route path='/login' element={<Login/>}/>
-            <Route path='/addpokemon' element={<NewPokemonForm/>} />
-            <Route path='/' element={<PokemonGrid/>}/>
-            <Route path='/:id' element={<CardInformation/>}/>
+            <Route path='/addpokemon' element={<NewPokemonForm
+            />} />
+            <Route path='/' element={<PokemonGrid/>}
+            />
+            <Route path='/:id' element={<CardInformation 
+            
+            />}/>
           </Routes>
         </div>
     </BrowserRouter>

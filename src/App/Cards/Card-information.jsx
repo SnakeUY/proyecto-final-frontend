@@ -1,25 +1,42 @@
 import React, {useEffect, useState} from "react";
 import { Link, useParams } from 'react-router-dom'
-import {pokemon}  from '../../Database/db';
+import { getPokemons } from "../../services/backend-connection";
 import Moves from "./Moves";
 import TableType from "./Table-type";
 
 
 const CardInformation = () =>{
+
     const id = useParams().id
-    const [poke,setPokemon] = useState(pokemon.find((candidate)=>candidate.id ==id))
+    const [pokemon,setPokemon] = useState([])
+    useEffect(()=>{
+        async function fetchData(){
+          getPokemons(pokemon=>{
+            setPokemon(pokemon)
+            console.log(pokemon)
+          })
+        }
+        fetchData()
+      },[id])
+
+    const [poke,setPoke] = useState(pokemon.find((candidate)=>candidate.id ==id))
     let index = pokemon.indexOf(poke)
+    
+
+
+  useEffect(()=>{
+    setPoke(pokemon.find((candidate)=>candidate.id ==id))
+},[pokemon])
+
+
     function getZeroes(number){
         return number.toString().padStart(3,'0')
     }
-
-    useEffect(()=>{
-        setPokemon(pokemon.find((candidate)=>candidate.id ==id))
-    },[id])
-
-    
-    return(
-        <div className={`${poke.type[0].toLowerCase()} big-card-container`}>
+    return( 
+        <>
+        {(!poke)?
+        <p>El pokemon no existe 404</p>:
+        <div className={`${poke.idtype_types[0].type.toLowerCase()} big-card-container`}>
 
             <div className= 'bgrn-pokeball'>
                 <img src="./Imagenes/Pokeball.png" alt="" />
@@ -60,15 +77,15 @@ const CardInformation = () =>{
             <div className='container-type'>
                 <div className='table-type'>
                         {
-                        poke.type.map((type)=>{
+                        poke.idtype_types.map((type)=>{
                             return(
                             <TableType
-                            type={type} />)
+                            type={type.type} />)
                         })
                     }
                 </div>
 
-                <span className={`${poke.type[0].toLowerCase()}-color-txt about`}>About</span>
+                <span className={`${poke.idtype_types[0].type.toLowerCase()}-color-txt about`}>About</span>
 
                 <div className='weight-height-moves'>
                     <div className='body-stat'>
@@ -90,10 +107,10 @@ const CardInformation = () =>{
                     <div className={`${poke.name.toLowerCase()}-moves body-stat`}>
                         <div className='measure-box moves'>
                         {
-                            poke.moves.map((moves)=>{
+                            poke.idmove_moves.map((move)=>{
                                 return(
                                     <Moves
-                                    moves={moves}/>)
+                                    move={move.move}/>)
                                     })
                                 }
                         </div>
@@ -105,10 +122,10 @@ const CardInformation = () =>{
                 <div className='description-box'>
                         <p className='description'>{poke.description}</p>
                 </div>
-                    <span className={`${poke.type[0].toLowerCase()}-color-txt`}>Base Stats</span>
+                    <span className={`${poke.idtype_types[0].type.toLowerCase()}-color-txt`}>Base Stats</span>
                         <div className='base-stats-container'>
                             <div className='stat-box-left'>
-                                <div className={`${poke.type[0].toLowerCase()}-color-txt stat-composition`}>
+                                <div className={`${poke.idtype_types[0].type.toLowerCase()}-color-txt stat-composition`}>
                                     <span>HP</span>
                                     <span>ATK</span>
                                     <span>DEF</span>
@@ -128,34 +145,36 @@ const CardInformation = () =>{
                             </div>
 
                             <div className='stat-bar-container'>
-                                <div className={`${poke.type[0].toLowerCase()}-bar-bgrn stat-bar`}>
-                                    <div style={{width:`${(poke.hp*100)/200}%`}} className={`${poke.type[0].toLowerCase()} inner-bar`}/>
+                                <div className={`${poke.idtype_types[0].type.toLowerCase()}-bar-bgrn stat-bar`}>
+                                    <div style={{width:`${(poke.hp*100)/200}%`}} className={`${poke.idtype_types[0].type.toLowerCase()} inner-bar`}/>
                                 </div>
 
-                                <div className={`${poke.type[0].toLowerCase()}-bar-bgrn stat-bar`}>
-                                    <div style={{width:`${(poke.atk*100)/200}%`}} className={`${poke.type[0].toLowerCase()} inner-bar`}></div>
+                                <div className={`${poke.idtype_types[0].type.toLowerCase()}-bar-bgrn stat-bar`}>
+                                    <div style={{width:`${(poke.atk*100)/200}%`}} className={`${poke.idtype_types[0].type.toLowerCase()} inner-bar`}></div>
                                 </div>
 
-                                <div className={`${poke.type[0].toLowerCase()}-bar-bgrn stat-bar`}>
-                                    <div style={{width:`${(poke.def*100)/200}%`}} className={`${poke.type[0].toLowerCase()} inner-bar`}></div>
+                                <div className={`${poke.idtype_types[0].type.toLowerCase()}-bar-bgrn stat-bar`}>
+                                    <div style={{width:`${(poke.def*100)/200}%`}} className={`${poke.idtype_types[0].type.toLowerCase()} inner-bar`}></div>
                                 </div>
                                 
-                                <div className={`${poke.type[0].toLowerCase()}-bar-bgrn stat-bar`}>
-                                    <div style={{width:`${(poke.satk*100)/200}%`}} className={`${poke.type[0].toLowerCase()} inner-bar`}></div>
+                                <div className={`${poke.idtype_types[0].type.toLowerCase()}-bar-bgrn stat-bar`}>
+                                    <div style={{width:`${(poke.satk*100)/200}%`}} className={`${poke.idtype_types[0].type.toLowerCase()} inner-bar`}></div>
                                 </div>
 
-                                <div className={`${poke.type[0].toLowerCase()}-bar-bgrn stat-bar`}>
-                                    <div style={{width:`${(poke.sdef*100)/200}%`}} className={`${poke.type[0].toLowerCase()} inner-bar`}></div>
+                                <div className={`${poke.idtype_types[0].type.toLowerCase()}-bar-bgrn stat-bar`}>
+                                    <div style={{width:`${(poke.sdef*100)/200}%`}} className={`${poke.idtype_types[0].type.toLowerCase()} inner-bar`}></div>
                                 </div>
 
-                                <div className={`${poke.type[0].toLowerCase()}-bar-bgrn stat-bar`}>
-                                    <div style={{width:`${(poke.spd*100)/200}%`}} className={`${poke.type[0].toLowerCase()} inner-bar`}></div>
+                                <div className={`${poke.idtype_types[0].type.toLowerCase()}-bar-bgrn stat-bar`}>
+                                    <div style={{width:`${(poke.spd*100)/200}%`}} className={`${poke.idtype_types[0].type.toLowerCase()} inner-bar`}></div>
                                 </div>
                             </div>
                         </div>
                 </div>
             </div>
         </div>
+    }</>
     )
 }
+
 export default CardInformation
