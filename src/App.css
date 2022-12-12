@@ -254,13 +254,17 @@ align-items: center;
 }
 
 .big-card-name{
+  display: flex;
   font-size:x-large;
   font-weight: bold;
   color: white;
+  align-items: center;
+  width: 100%;
 }
 .back-arrow{
   width: 1.5vw;
   margin-right: 1vh;
+  margin-top: 1vh;
   filter: invert(100%) brightness(200%);
 }
 
