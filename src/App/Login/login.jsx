@@ -27,7 +27,7 @@ const Login = () =>{
     const responseData = await postLogin(credentialsd)
         if (responseData.status === 'ok'){
             localStorage.setItem("userToken", responseData.token)
-            navigate("/list")
+            navigate("/")
     } else {
       setFormError(true)
     }
@@ -53,7 +53,7 @@ const Login = () =>{
                         onChange={(e) => setPassword(e.target.value)} 
                         name="password"/>
 
-                    <button className="enter-button" onClick={handleClick}>Comenzar</button>
+                    <button type="button" className="enter-button" onClick={handleClick}>Comenzar</button>
                 </form>           
         </div>
     )
