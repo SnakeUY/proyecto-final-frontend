@@ -5,22 +5,21 @@ const NewPokemonForm = () =>{
     
     return(
         <div className="form-container">
-                <form className="form-inputs" action="#">
-                    <div className="input-stats-container">
-                        <input className="input-stats" 
+                <form className="form-inputs first-form" action="#">
+                        <input className="first-inputs" 
                             type="text" 
                             placeholder="Name" 
                             name="name"/>
 
-                        <input className="input-stats" 
+                        <input className="first-inputs" 
                             type="number" 
                             placeholder="id" 
                             name="id"/>
-
-                        
                         <PokeTypes/>
-                        
+                        <span className="add-pokemon-image">+</span>
+                    </form>
 
+                <form className="form-inputs stats-form" action="">
                         <input className="input-stats" 
                             type="text" 
                             placeholder="Descripction" 
@@ -40,9 +39,7 @@ const NewPokemonForm = () =>{
                             type="number" 
                             placeholder="Height" 
                             name="height"/>
-                    </div>
-
-                    <div className="input-stats-container">
+                    
                         <input className="input-stats" 
                             type="number" 
                             placeholder="HP" 
@@ -82,13 +79,7 @@ const NewPokemonForm = () =>{
                             type="number" 
                             placeholder="HP" 
                             name="hp"/>
-                    </div>
-                    
                 </form>
-
-                <div className="add-pokemon-image">
-                        <span>+</span>
-                </div>
                 <button className="enter-button">Agregar</button>
             </div>
     )
