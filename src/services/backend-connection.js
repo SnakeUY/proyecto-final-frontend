@@ -1,14 +1,21 @@
-const url = "http://localhost:8000/pokemons";
+const url = "http://localhost:8000/";
 
 export const getPokemons = (onSuccess,onFinish) =>
-    fetch(url)
+    fetch(`${url}pokemons`)
     .then(response => response.json())
     .then(onSuccess)
     .finally(onFinish);
 
 export const getPokemonById = (id,onSuccess,onFinish) =>{
-  fetch(`${url}/?id=${id}`)
+  fetch(`${url}pokemons/?id=${id}`)
     .then(response => response.json())
     .then(onSuccess)
     .finally(onFinish);
 }
+
+
+export const getTypes = (onSuccess,onFinish) =>
+    fetch(`${url}types`)
+    .then(response => response.json())
+    .then(onSuccess)
+    .finally(onFinish);

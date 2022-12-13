@@ -1,6 +1,8 @@
 import React from "react";
+import { PokeTypes } from "./New-pokemon-Types"
 
 const NewPokemonForm = () =>{
+    
     return(
         <div className="form-container">
                 <form className="form-inputs" action="#">
@@ -12,13 +14,12 @@ const NewPokemonForm = () =>{
 
                         <input className="input-stats" 
                             type="number" 
-                            placeholder="Number" 
-                            name="number"/>
+                            placeholder="id" 
+                            name="id"/>
 
-                        <input className="input-stats" 
-                            type="text" 
-                            placeholder="Types" 
-                            name="types"/>
+                        
+                        <PokeTypes/>
+                        
 
                         <input className="input-stats" 
                             type="text" 
