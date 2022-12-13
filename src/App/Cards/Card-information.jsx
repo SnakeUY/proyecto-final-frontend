@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link, useParams } from 'react-router-dom'
 import { getPokemons } from "../../services/backend-connection";
+import Error404 from "../Pokemon-Search/Error404";
 import Moves from "./Moves";
 import TableType from "./Table-type";
 
@@ -35,7 +36,7 @@ const CardInformation = () =>{
     return( 
         <>
         {(!poke)?
-        <p>El pokemon no existe 404</p>:
+        <Error404/>:
         <div className={`${poke.idtype_types[0].type.toLowerCase()} big-card-container`}>
 
             <div className= 'bgrn-pokeball'>
