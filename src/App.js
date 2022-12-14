@@ -9,21 +9,23 @@ import { getPokemons } from './services/backend-connection';
 import Login from './App/Login/login';
 import NewPokemonForm from './App/New-Pokemon/New-pokemon-form';
 
-function PokemonGrid (){
+function PokemonGrid ({logout, login, isLog }){
+ 
   const [pokemonList,setPokemonList] = useState ([])
   const [pokemonOrder,setPokemonOrder] = useState ("#")
   const [pokemonSearch, setPokemonSearch] = useState ("")
+ 
   useEffect(()=>{
+
     async function fetchData(){
       getPokemons(pokemon=>{
         setPokemonList(pokemon)
-        console.log(pokemon)
       })
-      console.log(pokemonList)
+   
     }
     fetchData()
-  },[]
-  )
+  },[])
+
   const changeOrder = () =>{
     if (pokemonOrder === "#"){
      let changedOrder = pokemonList.sort((a, b) => {
@@ -40,34 +42,68 @@ function PokemonGrid (){
       setPokemonOrder("#")
     }
   }
-  
+
+
   return (
     <>
         <div className='app-navbar'>
           <Nav pokemonOrder={pokemonOrder}
                changeOrder={changeOrder}
                pokemonSearch={pokemonSearch}
-               search={setPokemonSearch}/>
+               search={setPokemonSearch}
+               logout={logout}
+               login={login}
+               isLog={isLog}
+               />
         </div>
         <PokemonList 
-            list={pokemonList.filter((pokemon)=>pokemon.name.toLowerCase().includes(pokemonSearch.toLowerCase()))}/>
+            list={pokemonList.filter((pokemon)=>pokemon.name.toLowerCase().includes(pokemonSearch.toLowerCase()))}
+          
+            isLog={isLog}
+          />
     </>
   );
 }
 
 function App() {
+
+  const [isLog, setIsLog] = useState(false)
+  
+  const getStoredToken = () => {
+    const userToken = localStorage.getItem("userToken")
+    return userToken
+  }
+
+  const login = (token) => {
+    setIsLog(true)
+    localStorage.setItem("userToken", token)
+    return isLog
+  }
+  const logout = async () => {
+    setIsLog(false)
+    localStorage.removeItem("userToken") 
+    return isLog
+  }
+
+  // Al final no lo use
+  const sendToken = async (url) => {
+    const token = getStoredToken()
+    console.log(token)
+    const requestOptions = {
+        headers: { "auth-token": token },
+      };
+     
+      return requestOptions
+  }
+  
   return(
     <BrowserRouter>
         <div className="App">
           <Routes>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/addpokemon' element={<NewPokemonForm
-            />} />
-            <Route path='/' element={<PokemonGrid/>}
-            />
-            <Route path='/:id' element={<CardInformation 
-            
-            />}/>
+            <Route path='/' element={<PokemonGrid getToken={getStoredToken} logout={logout} login={login} isLog={isLog}  />} />
+            <Route path='/:id' element={<CardInformation />} />
+            <Route path='/login' element={<Login login={login} isLog={isLog} />} />
+            <Route path='/addpokemon' element={<NewPokemonForm />} />
           </Routes>
         </div>
     </BrowserRouter>

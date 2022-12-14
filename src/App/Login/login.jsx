@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-const Login = () =>{
+const Login = (props) =>{
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [formError, setFormError] = useState(false)
     const navigate = useNavigate()
+
     const cleanAlerts = () => {
         setFormError(false)
       }
@@ -22,20 +23,32 @@ const Login = () =>{
       }
     
     const handleClick= async()=>{
-        cleanAlerts()
-    const credentialsd = { email: email, password: password}
-    const responseData = await postLogin(credentialsd)
-        if (responseData.status === 'ok'){
-            localStorage.setItem("userToken", responseData.token)
-            navigate("/")
+      cleanAlerts()
+      const credentialsd = { email: email, password: password}
+      const responseData = await postLogin(credentialsd)
+  
+      if (responseData.status === 'ok'){
+        props.login(responseData.token)
+        console.log(props.isLog)
+        navigate("/")
+          
     } else {
       setFormError(true)
     }
+  }
 
-    }
+  const backPrincipal = () => {
+    navigate("/")
+  }
+    
     return(
         <div className="background-login form-container">
+                <div className="div-arrow-back">
+                    <img className="arrow-back" src="./imagenes/flecha.png" alt="" onClick={backPrincipal} />
+                
+                </div>
                 <form className="login-inputs" action="#">
+                  
                 {formError && 
                 <div className="alert alert-danger" role="alert">
                          Login error.
@@ -54,6 +67,7 @@ const Login = () =>{
                         name="password"/>
 
                     <button type="button" className="enter-button" onClick={handleClick}>Comenzar</button>
+                  
                 </form>           
         </div>
     )

@@ -1,6 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
+import {useEffect, useState} from 'react'
 
 const Nav = (props) =>{
+    const navigate = useNavigate()
+
+    const loginClick= ()=>{
+        navigate("/login")
+    }
+    
+    const logoutClick =  () => {
+        props.logout()
+        navigate("/login")
+    }
+
+   
     return(
         <div className="navbar">
             <div className="title">
@@ -9,6 +23,10 @@ const Nav = (props) =>{
                     <h1>Pokédex</h1>
                 </div>
                 <div className="order-button-box">
+                    { (!props.isLog) 
+                        ? <button onClick={loginClick}> login </button> 
+                        : <button onClick={logoutClick}> logout </button>
+                    }
                     <button className="order-button" 
                         onClick={()=>{props.changeOrder()}}>
                             {props.pokemonOrder}
