@@ -23,8 +23,8 @@ const PokeTypes = () =>{
         <>
         {(!pokeTypes)?
         <p>Cargando formulario</p>:
-        <select className="first-inputs" value={state} onChange={(e) =>setState(e.target.value)}>
-        <option /> {
+        <select className="option-inputs" value={state} onChange={(e) =>setState(e.target.value)}>
+        <option>Type</option>{
             pokeTypes.map((optionNode) => {
          return <option key={optionNode.id} value={optionNode.type}>{optionNode.type}</option>
     })

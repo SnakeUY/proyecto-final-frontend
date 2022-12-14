@@ -14,16 +14,19 @@ const NewPokemonForm = () =>{
 
                         <input className="first-inputs" 
                             type="number" 
-                            placeholder="id" 
+                            placeholder="Description" 
                             name="id"/>
-                        <PokeTypes/>
+                        <div className="options-form-container">
+                            <PokeTypes/>
+                            <PokeTypes/>
+                        </div>
                         <span className="add-pokemon-image">+</span>
                     </form>
 
                 <form className="form-inputs stats-form" action="">
                         <input className="input-stats" 
                             type="text" 
-                            placeholder="Descripction" 
+                            placeholder="Number" 
                             name="description"/>
 
                         <input className="input-stats" 
