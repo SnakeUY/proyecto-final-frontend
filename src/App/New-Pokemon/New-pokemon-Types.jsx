@@ -1,11 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { getTypes } from "../../services/backend-connection";
-const PokeTypes = () =>{
+const PokeTypes = ({text,typos,settype}) =>{
     
     const [pokeTypes, setPokeTypes] = useState([])
-    const [state,setState] = useState('coconut');
-
 
     useEffect(()=>{
     async function fetchData(){
@@ -23,10 +21,10 @@ const PokeTypes = () =>{
         <>
         {(!pokeTypes)?
         <p>Cargando formulario</p>:
-        <select className="option-inputs" value={state} onChange={(e) =>setState(e.target.value)}>
-        <option>Type</option>{
+        <select className="option-inputs" value={typos} onChange={(e) => settype(e.target.value)}>
+        <option>{text}</option> {
             pokeTypes.map((optionNode) => {
-         return <option key={optionNode.id} value={optionNode.type}>{optionNode.type}</option>
+         return <option id={optionNode.id} value={optionNode.id}>{optionNode.type}</option>
     })
     }
         </select>
