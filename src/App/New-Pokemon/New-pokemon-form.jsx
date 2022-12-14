@@ -1,8 +1,9 @@
 import React from "react";
 import { PokeTypes } from "./New-pokemon-Types"
+import { useNavigate } from "react-router-dom"
 
 const NewPokemonForm = () =>{
-    
+    const navigate = useNavigate()
     return(
         <div className="form-container">
                 <form className="form-inputs first-form" action="#">
@@ -80,7 +81,10 @@ const NewPokemonForm = () =>{
                             placeholder="HP" 
                             name="hp"/>
                 </form>
-                <button className="enter-button">Agregar</button>
+                <div className="form-buttons">
+                    <button className="enter-button">Add</button>
+                    <button className="enter-button" onClick={()=> navigate('/') }>Back</button>
+                </div>
             </div>
     )
 }

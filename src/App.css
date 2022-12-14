@@ -104,6 +104,11 @@ body{
   gap: 5vh;
 }
 
+.form-buttons{
+  display: flex;
+  flex-direction: row;
+}
+
 .enter-button{
   background-color: darkslategray;
   color: white;
@@ -111,6 +116,7 @@ body{
   border-radius: 1rem;
   width: 10vh;
   height: 40px;
+  margin: 2%;
 }
 
 .add-pokemon-image{
@@ -119,6 +125,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 1rem;
   border: 1px solid black;
 }
 
