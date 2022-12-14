@@ -6,11 +6,11 @@ import Loader from "../Loader/Loader";
 import Moves from "./Moves";
 import TableType from "./Table-type";
 
-
 const CardInformation = () =>{
-
     const id = useParams().id
     const [pokemon,setPokemon] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [poke,setPoke] = useState([])
     useEffect(()=>{
         async function fetchData(){
           getPokemons(pokemon=>{
@@ -21,24 +21,27 @@ const CardInformation = () =>{
         fetchData()
       },[id])
 
-    const [poke,setPoke] = useState(pokemon.find((candidate)=>candidate.id ==id))
-    let index = pokemon.indexOf(poke)
-    
+    useEffect(()=>{
+        setPoke(pokemon.find((candidate)=>candidate.id ==id))
+    },[pokemon])
 
-
-  useEffect(()=>{
-    setPoke(pokemon.find((candidate)=>candidate.id ==id))
-},[pokemon])
-
+    useEffect(()=>{
+        setIsLoading(false)
+    },[poke])
 
     function getZeroes(number){
         return number.toString().padStart(3,'0')
     }
+    let index = pokemon.indexOf(poke)
+
+
     return( 
+    <>
+    {(isLoading)?
+       <Loader/> :
         <>
         {(!poke)?
-            <Loader/> :
-
+            <Error404/> :
             <div className={`${poke.idtype_types[0].type.toLowerCase()} big-card-container`}>
 
                 <div className= 'bgrn-pokeball'>
@@ -177,7 +180,10 @@ const CardInformation = () =>{
                 </div>
             </div>
         }
-    </>)
+    </>}
+    </>
+    )
+    
 }
 
 export default CardInformation

@@ -9,7 +9,7 @@ import { getPokemons } from './services/backend-connection';
 import Login from './App/Login/login';
 import NewPokemonForm from './App/New-Pokemon/New-pokemon-form';
 
-function PokemonGrid ({logout, login, isLog }){
+function PokemonGrid ({logout, login, isLog , getStoredToken}){
  
   const [pokemonList,setPokemonList] = useState ([])
   const [pokemonOrder,setPokemonOrder] = useState ("#")
@@ -21,7 +21,7 @@ function PokemonGrid ({logout, login, isLog }){
       getPokemons(pokemon=>{
         setPokemonList(pokemon)
       })
-   
+      getStoredToken()
     }
     fetchData()
   },[])
@@ -54,12 +54,13 @@ function PokemonGrid ({logout, login, isLog }){
                logout={logout}
                login={login}
                isLog={isLog}
+               getStoredToken={getStoredToken}
                />
         </div>
         <PokemonList 
             list={pokemonList.filter((pokemon)=>pokemon.name.toLowerCase().includes(pokemonSearch.toLowerCase()))}
           
-            isLog={isLog}
+            getStoredToken={getStoredToken}
           />
     </>
   );
@@ -70,8 +71,7 @@ function App() {
   const [isLog, setIsLog] = useState(false)
   
   const getStoredToken = () => {
-    const userToken = localStorage.getItem("userToken")
-    return userToken
+    return localStorage.getItem("userToken")
   }
 
   const login = (token) => {
@@ -100,7 +100,7 @@ function App() {
     <BrowserRouter>
         <div className="App">
           <Routes>
-            <Route path='/' element={<PokemonGrid getToken={getStoredToken} logout={logout} login={login} isLog={isLog}  />} />
+            <Route path='/' element={<PokemonGrid getStoredToken={getStoredToken} logout={logout} login={login} isLog={isLog}  />} />
             <Route path='/:id' element={<CardInformation />} />
             <Route path='/login' element={<Login login={login} isLog={isLog} />} />
             <Route path='/addpokemon' element={<NewPokemonForm />} />

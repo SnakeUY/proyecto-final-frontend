@@ -2,11 +2,11 @@ import React from "react";
 import Card from "../Cards/Card";
 import NewPokemonBox from "../New-Pokemon/New-pokemon";
 
-const PokemonList = ({list, isLog}) =>{
+const PokemonList = ({list, getStoredToken}) =>{
    
     return(
         <>
-            {(isLog) ? 
+            {getStoredToken() ? 
             <>
             <div className="list-container">
                 <NewPokemonBox/>

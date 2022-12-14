@@ -23,7 +23,7 @@ const Nav = (props) =>{
                     <h1>Pokédex</h1>
                 </div>
                 <div className="order-button-box">
-                    { (!props.isLog) 
+                    { !props.getStoredToken() 
                         ? <button onClick={loginClick}> login </button> 
                         : <button onClick={logoutClick}> logout </button>
                     }
