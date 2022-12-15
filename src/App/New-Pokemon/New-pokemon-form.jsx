@@ -70,7 +70,7 @@ const NewPokemonForm = () =>{
                                     setMoves={setSecondMove}/>
                             </div>
                         </div>
-
+                    
                         <span>Add Image</span>
                         <span className="add-pokemon-image">+</span>
                     </form>

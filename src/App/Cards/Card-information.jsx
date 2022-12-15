@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link, useParams } from 'react-router-dom'
-import { getPokemons } from "../../services/backend-connection";
+import { getPokemons } from "../../Services/backend-connection";
 import Error404 from "../Pokemon-Search/Error404";
 import Loader from "../Loader/Loader";
 import Moves from "./Moves";
