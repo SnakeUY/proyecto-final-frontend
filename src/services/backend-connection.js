@@ -24,3 +24,53 @@ export const getTypes = (onSuccess,onFinish) =>
     .then(response => response.json())
     .then(onSuccess)
     .finally(onFinish);
+    
+export const addPokemon = async (newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr) => {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "auth-token": token},
+        body: JSON.stringify({pokemon: newPoke}),
+      };
+      fetch("http://localhost:8000/pokemons/create", requestOptions)
+        .then((data) => {
+          console.log(data)
+          if(data){
+            insertType(tpyeOneArr,token)
+            insertType(tpyeTwoArr,token)
+            insertMove(moveOneArr,token)
+            insertMove(moveTwoArr,token)
+          }
+        })
+        .catch(function (err) {
+          console.log("Ha ocurrido un error.");
+        })
+    }
+export const insertMove = async (move,token) => {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "auth-token": token},
+        body: JSON.stringify({move: move}),
+      };
+      fetch("http://localhost:8000/moves/insert", requestOptions)
+        .then(() => {
+          console.log()
+        })
+        .catch(function (err) {
+          console.log("Ha ocurrido un error.");
+        })
+    }
+export const insertType = async (type,token) => {
+  console.log(type)
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "auth-token": token},
+        body: JSON.stringify({type: type}),
+      };
+      fetch("http://localhost:8000/types/insert", requestOptions)
+        .then((data) => {
+          console.log(data)
+        })
+        .catch(function (err) {
+          console.log("Ha ocurrido un error.");
+        })
+    }

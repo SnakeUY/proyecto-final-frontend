@@ -103,7 +103,7 @@ function App() {
             <Route path='/' element={<PokemonGrid getStoredToken={getStoredToken} logout={logout} login={login} isLog={isLog}  />} />
             <Route path='/:id' element={<CardInformation />} />
             <Route path='/login' element={<Login login={login} isLog={isLog} />} />
-            <Route path='/addpokemon' element={<NewPokemonForm />} />
+            <Route path='/addpokemon' element={<NewPokemonForm getStoredToken={getStoredToken}/>} />
           </Routes>
         </div>
     </BrowserRouter>

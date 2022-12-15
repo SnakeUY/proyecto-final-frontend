@@ -3,7 +3,8 @@ import { PokeTypes } from "./New-pokemon-Types"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { PokeMoves } from "./New-pokemon-Moves";
-const NewPokemonForm = () =>{
+import { addPokemon, insertMove, insertType } from "../../services/backend-connection"
+const NewPokemonForm = ({getStoredToken}) =>{
     const navigate = useNavigate()
     const [state,setState] = useState({
         id:[],
@@ -151,14 +152,14 @@ const NewPokemonForm = () =>{
                             />
                 </form>
                 <div className="form-buttons">
-                    <button className="enter-button"style={{cursor: "pointer"}} onClick={()=> addNewPoke(state,typeOne,typeTwo,firstMove,secondMove)}>Add</button>
+                    <button className="enter-button"style={{cursor: "pointer"}} onClick={()=> addNewPoke({state,typeOne,typeTwo,firstMove,secondMove,getStoredToken,navigate})}>Add</button>
                     <button className="enter-button" onClick={()=> navigate('/') }>Back</button>
                 </div>
             </div>
     )
 }
 
-const addNewPoke = (state,typeOne,typeTwo,firstMove,secondMove) =>{
+const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredToken,navigate}) =>{
     if(state.id == "" || state.name == "" ){
         alert("Todos los campos son obligatorios")
     } else if(typeOne == typeTwo){
@@ -184,7 +185,56 @@ const addNewPoke = (state,typeOne,typeTwo,firstMove,secondMove) =>{
         console.log(firstMove)
         console.log(secondMove)
         alert("Pokemon creado")
+        const token = getStoredToken()
+        console.log("Token")
+        console.log(token)
+
+    let tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr = {}
+
+        if(!isNaN(typeOne)){{
+            tpyeOneArr = {
+                idpoke:state.id,
+                idtype:typeOne
+            }
+            console.log("arr")
+            console.log(tpyeOneArr)
+
+        }
+    if(!isNaN(typeTwo)){
+       tpyeTwoArr = {
+            idpoke:state.id,
+            idtype:typeTwo
+        }
+        console.log(tpyeTwoArr)
+    }
+    if(!isNaN(firstMove)){
+    moveOneArr = {
+        idpoke:state.id,
+        idmove:firstMove
+    }
+    console.log(moveOneArr)
+
+    }
+
+    if(!isNaN(secondMove)){
+        moveTwoArr = {
+            idpoke:state.id,
+            idmove:secondMove
+        }
+        console.log(moveTwoArr)
+    }
+
+
+    await addPokemon(newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr)
+
+
+        /*
+    const [typeOne,     setTypeOne]      =   useState({})
+    const [typeTwo,     setTypeTwo]      =   useState({})
+    const [firstMove,   setFirstMove]    =   useState({})
+    const [secondMove,  setSecondMove]   =   useState({})
+        */
         }
     }
-    
+}
 export default NewPokemonForm

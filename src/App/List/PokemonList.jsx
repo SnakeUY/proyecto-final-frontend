@@ -9,7 +9,7 @@ const PokemonList = ({list, getStoredToken}) =>{
             {getStoredToken() ? 
             <>
             <div className="list-container">
-                <NewPokemonBox/>
+                <NewPokemonBox getStoredToken={getStoredToken}/>
                 {
                     list.map((pokemon)=>{
                         let pokemonTypeOne = pokemon.idtype_types[0].type
