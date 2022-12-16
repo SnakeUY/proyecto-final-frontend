@@ -6,8 +6,6 @@ import Login from './App/Login/login';
 import NewPokemonForm from './App/New-Pokemon/New-pokemon-form';
 import PokemonGrid from './App/Pokemon-grid/Pokemongrid';
 
-
-
 function App() {
 
   const [isLog, setIsLog] = useState(false)
@@ -28,15 +26,7 @@ function App() {
   }
 
   // Al final no lo use
-  const sendToken = async (url) => {
-    const token = getStoredToken()
-    console.log(token)
-    const requestOptions = {
-        headers: { "auth-token": token },
-      };
-     
-      return requestOptions
-  }
+  
   
   return(
     <BrowserRouter>
@@ -45,7 +35,7 @@ function App() {
             <Route path='/' element={<PokemonGrid getStoredToken={getStoredToken} logout={logout} login={login} isLog={isLog}  />} />
             <Route path='/:id' element={<CardInformation />} />
             <Route path='/login' element={<Login login={login} isLog={isLog} />} />
-            <Route path='/addpokemon' element={<NewPokemonForm getStoredToken={getStoredToken}/>} />
+            <Route path='/addpokemon' element={<NewPokemonForm getStoredToken={getStoredToken} />} />
           </Routes>
         </div>
     </BrowserRouter>
