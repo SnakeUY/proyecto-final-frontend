@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getTypes } from "../../services/backend-connection";
+import { getTypes } from "../../Services/backend-connection";
 const PokeTypes = ({text,typos,settype}) =>{
     
     const [pokeTypes, setPokeTypes] = useState([])
