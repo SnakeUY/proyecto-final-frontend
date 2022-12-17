@@ -8,6 +8,8 @@ body{
   font-family: 'Poppins', sans-serif;
 }
 
+
+/*ERROR 404*/
 .error-404-container{
   width: 100%;
   height: 100%;
@@ -42,6 +44,8 @@ body{
   height: 100%;
 }
 
+
+/*LOGIN*/
 .background-login{
   background-image: url("../public/Imagenes/login-background.png");
 }
@@ -59,6 +63,16 @@ body{
   cursor: pointer;
 }
 
+.login-inputs{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5vh;
+}
+
+/*FORM NEW POKEMON*/
 .form-container{
   width: 100vw;
   height: 100vw;
@@ -81,7 +95,6 @@ body{
   width: 40vw;
   height: 45vh;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -94,9 +107,50 @@ body{
   font-weight: bold;
   font-size: large;
   border: 1px solid gray;
-
 }
 
+.stats-form-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.input-stats{
+  width: 5vw;
+  height: 5vh;
+  margin: 2vh 0vh;
+  border-radius: 0.5rem;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: large;
+  border: 1px solid gray;
+}
+
+.url-input{
+  width: 10vw;
+}
+
+.stats-form{
+  width: 40vw;
+  height: 25vh;
+}
+
+.form-buttons{
+  display: flex;
+  flex-direction: row;
+}
+
+.add-pokemon-image{
+  width: 200px;
+  height: 200px;
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  border: 1px solid black;
+}
+
+/*OPTION FORM*/
 .options-form-container{
   display: flex;
   flex-direction: row;
@@ -121,60 +175,9 @@ body{
   margin-top: 10%;
 }
 
-.input-stats{
-  width: 15%;
-  height: 5vh;
-  margin: 2vh 0vh;
-  border-radius: 0.5rem;
-  padding-left: 10px;
-  font-weight: bold;
-  font-size: large;
-  border: 1px solid gray;
-}
 
-.stats-form{
-  width: 40vw;
-  height: 25vh;
-}
 
-.login-inputs{
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5vh;
-}
-
-.form-buttons{
-  display: flex;
-  flex-direction: row;
-}
-
-.enter-button{
-  background-color: darkslategray;
-  color: white;
-  border-style: none;
-  border-radius: 1rem;
-  width: 10vh;
-  height: 40px;
-  margin: 2%;
-}
-
-.add-pokemon-image{
-  width: 16vw;
-  height: 40vh;
-  margin-top: 2%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 1rem;
-  border: 1px solid black;
-}
-
-a{
-  text-decoration: none;
-}
+/*LINKS, BUTTONS, ETC ETC*/
 
 .App{
   display: flex;
@@ -186,27 +189,42 @@ a{
   background-color: #f7f7f7;
 }
 
+.enter-button{
+  background-color: darkslategray;
+  color: white;
+  border-style: none;
+  border-radius: 1rem;
+  width: 10vh;
+  height: 40px;
+  margin: 2vh;
+}
+
+a{
+  text-decoration: none;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
 
+/*NAV BAR*/
 .app-navbar{
-  width: 40%;
-  height: 20%;
+  width: 40vw;
+  height: 15vh;
   display: flex;
   justify-content: center;
 }
  
 .navbar{
-  width: 100%;
+  width: 100vw;
+  height: 15vh;
   display: flex;
   flex-direction: column;
-  margin-bottom: 5%;
+  margin-bottom: 2vh;
 }
 
 .title{
-  height: 60%;
-  margin-top: 5%;
+  height: 8vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -242,7 +260,7 @@ align-items: center;
 }
 
 .input{
-  width: 100%;
+  width: 40vw;
   height: 5vh;
   border-radius: 0.5rem;
   border: solid #666666 1px;
@@ -251,41 +269,60 @@ align-items: center;
   padding-left: 5%;
 }
 
+
+/*POKEMON LIST*/
 .list-container{
-  width: 45%;
+  width: 45vw;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-content: baseline;
   flex-wrap: wrap;
-  gap: 4%;
+  gap: 1.5vw;
   z-index: 0;
   margin-left: 5%;
 }
 
+/*CARD LIST*/
+
 .mini{
-    width: 70%;
-    height: 70%;
+    width: 8vw;
+    height: 15vh;
     position: absolute;
-    margin-top: 15px;
+    margin-top: 2vh;
+}
+
+.number-flex{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .number-span{
   display: flex;
-  align-self: flex-end;
-  margin: 5px;
+  align-self: flex-start;
+  justify-self: flex-end;
+  margin: 1vh;
+}
+
+.box-image{
+  width: 12vw;
+  height: 100%;
+  border-radius: 1rem 1rem 0rem 0rem;
+  display: flex;
+  justify-content: center;
 }
 
 .box{
   width: 12vw;
-  height: 22vh;
+  height: 23vh;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-radius: 1rem;
   background-color: white;
+  border-radius: 1rem 1rem 0rem 0rem;
 }
 
 .box::before{
@@ -305,15 +342,17 @@ align-items: center;
 }
 
 .name-box{
-  width:100%;
-  height: 20%;
+  width: 102%;
+  height: 5vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  border-radius: 0rem 0rem 0.6rem 0.6rem;
 }
 
+
+/*CARD INFORMATION*/
 .big-card-container{
   position: relative;
   width: 25%;

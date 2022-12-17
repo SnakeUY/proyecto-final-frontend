@@ -7,9 +7,14 @@ const Card = (props) =>{
     }
     return(
         <Link to={'/'+props.number}>
-            <div className={props.type}>
-                <span className="number-span">#{getZeroes(props.number)}</span>
+            <div className="box">
+                <div className={props.type}>
+                    <div className="number-flex">
+                        <span className="number-span">#{getZeroes(props.number)}</span>
+                    </div>
                 <img className="mini" src={props.pokemon} alt="" />
+                </div>
+                
                 <div className={props.title}>
                     <span>{props.name}</span>
                 </div>
