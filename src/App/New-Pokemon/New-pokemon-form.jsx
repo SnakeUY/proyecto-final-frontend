@@ -20,6 +20,7 @@ const NewPokemonForm = ({getStoredToken}) =>{
         satk:[],
         sdef:[],
         spd:[],
+        pokeurl:[],
       })
 
       const [typeOne, setTypeOne] = useState({})
@@ -97,12 +98,12 @@ const NewPokemonForm = ({getStoredToken}) =>{
                         </div>
                     <div className="stats-form-container">
                         <span>Add Image</span>
-                        <div className="add-pokemon-image">+</div>
+                        <div className="add-pokemon-image"><img src={state.pokeurl} style={{height:"200px",weight:"200px"}}/></div>
                         <input className="input-stats url-input" 
                                 type="text" 
                                 placeholder="URL"
                                 name="url-image"
-                                onChange={(e) => setState({...state, id:e.target.value})}
+                                onChange={(e) => setState({...state, pokeurl:e.target.value})}
                                 />
                     </div>
                     </form>
