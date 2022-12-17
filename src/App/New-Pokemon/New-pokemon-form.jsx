@@ -6,6 +6,7 @@ import { PokeMoves } from "./New-pokemon-Moves";
 import { addPokemon, insertMove, insertType } from "../../services/backend-connection"
 const NewPokemonForm = ({getStoredToken}) =>{
     const navigate = useNavigate()
+
     const [state,setState] = useState({
         id:[],
         name:[],
@@ -25,7 +26,30 @@ const NewPokemonForm = ({getStoredToken}) =>{
       const [typeTwo, setTypeTwo] = useState({})
       const [firstMove, setFirstMove] = useState({})
       const [secondMove, setSecondMove] = useState({})
-      
+      const sendToken = async () => {
+
+            const token = getStoredToken()
+            console.log(token)
+            const settings = { 
+            method: 'POST', 
+            headers: { 
+                "Content-Type": "application/json", 
+                "auth-token": token },
+            };
+        
+            try {
+                const fetchResponse = await fetch(`http://localhost:8000/users/validate-token`, settings);
+                console.log(fetchResponse)
+                if(fetchResponse.ok === false){
+                    navigate("/")
+                }
+            
+            } catch (e) {
+                return e;
+            }
+        }
+
+      sendToken()
     return(
         <div className="form-container">
                 <form className="form-inputs first-form" action="#">
