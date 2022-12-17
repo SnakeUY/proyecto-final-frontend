@@ -17,7 +17,7 @@ const PokemonList = ({list, getStoredToken}) =>{
                             <Card key={pokemon.id}
                             type={`${pokemonTypeOne.toLowerCase()}-border ${pokemonTypeOne.toLowerCase()}-color-txt box-image`} 
                             number={`${pokemon.id}`}
-                            pokemon={`./Imagenes/${pokemon.name.toLowerCase()}.png`}
+                            pokemon={`${pokemon.pokeurl}`}
                             title={`${pokemonTypeOne.toLowerCase()} name-box`}
                             name={`${pokemon.name}`}/>
                         )
@@ -34,7 +34,7 @@ const PokemonList = ({list, getStoredToken}) =>{
                          <Card key={pokemon.id}
                          type={`${pokemonTypeOne.toLowerCase()}-border ${pokemonTypeOne.toLowerCase()}-color-txt box`} 
                          number={`${pokemon.id}`}
-                         pokemon={`./Imagenes/${pokemon.name.toLowerCase()}.png`}
+                         pokemon={`${pokemon.pokeurl}`}
                          title={`${pokemonTypeOne.toLowerCase()} name-box`}
                          name={`${pokemon.name}`}/>
                      )

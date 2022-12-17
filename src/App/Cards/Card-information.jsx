@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link, useParams } from 'react-router-dom'
-import { getPokemons } from "../../Services/backend-connection";
+import { getPokemons } from "../../services/backend-connection";
 import Error404 from "../Pokemon-Search/Error404";
 import Loader from "../Loader/Loader";
 import Moves from "./Moves";
@@ -69,7 +69,7 @@ const CardInformation = () =>{
                         )
                     }
                 
-                    <img className={`${poke.name.toLowerCase()}-image`} src={`./Imagenes/${poke.name.toLowerCase()}.png`}/>
+                    <img className={`${poke.name.toLowerCase()}-image`} src={poke.pokeurl} style={{height: "200px",weight:"200px"}}/>
                 
                     {
                         pokemon[index+1] &&  (

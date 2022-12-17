@@ -2,7 +2,7 @@ import React from "react";
 import {useEffect, useState} from 'react'
 import Nav from '../Pokemon-Search/Nav';
 import PokemonList from '../List/PokemonList';
-import { getPokemons } from "../../Services/backend-connection";
+import { getPokemons } from "../../services/backend-connection";
 
 function PokemonGrid ({logout, login, isLog , getStoredToken}){
  
