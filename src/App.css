@@ -315,7 +315,7 @@ align-items: center;
 
 .box{
   width: 12vw;
-  height: 23vh;
+  height: 18vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -326,6 +326,7 @@ align-items: center;
 }
 
 .box::before{
+  height: 23vh;
   content: '';
   position: absolute;
   background: -webkit-linear-gradient(to right, #56bbf2, #e873f5, #fa8f2c);
@@ -342,21 +343,21 @@ align-items: center;
 }
 
 .name-box{
-  width: 102%;
+  width: 100%;
   height: 5vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  border-radius: 0rem 0rem 0.6rem 0.6rem;
+  border-radius: 0rem 0rem 1rem 1rem;
 }
 
 
 /*CARD INFORMATION*/
 .big-card-container{
   position: relative;
-  width: 25%;
-  height: 95%;
+  width: 25vw;
+  height: 95vh;
   margin: 5vh;
   border-radius: 0.5rem;
   display: flex;
@@ -378,7 +379,7 @@ align-items: center;
 
 .big-card-nav{
   width: 90%;
-  height: 5%;
+  height: 5vh;
   margin: 3vh;
   display: flex;
   flex-direction: row;
@@ -388,12 +389,12 @@ align-items: center;
 }
 
 .big-card-name{
+  width: 100vw;
   display: flex;
   font-size:x-large;
   font-weight: bold;
   color: white;
   align-items: center;
-  width: 100%;
 }
 .back-arrow{
   width: 1.5vw;
@@ -436,7 +437,7 @@ align-items: center;
 
 .container-type{
   width: 98%;
-  height: 65%;
+  height: 60vh;
   margin: 0.5vh;
   background-color: rgb(255, 255, 255);
   border-radius: 0.5rem;
@@ -473,10 +474,12 @@ align-items: center;
 
 .description-box{
   width: 90%;
+  margin: 2vh;
 }
 .description{
   font-weight: lighter;
   font-size: x-small;
+  text-align: center;
 }
 
 .weight-height-moves{
@@ -680,7 +683,8 @@ flex-direction: column;
 }
 
 .grass{
-  background-color:#74CB48;
+  background: rgb(59,161,8);
+  background: linear-gradient(90deg, rgba(59,161,8,1) 0%, rgba(116,203,72,1) 82%);
 }
 
 .grass-border{
@@ -696,7 +700,8 @@ flex-direction: column;
 }
 
 .fire{
-  background-color:#F57D31;
+background: rgb(223,82,47);
+background: linear-gradient(90deg, rgba(223,82,47,1) 0%, rgba(245,125,49,1) 68%);
 }
 
 .fire-border{
@@ -712,7 +717,8 @@ flex-direction: column;
 }
 
 .water{
-  background-color:#6493EB;
+  background: rgb(29,86,205);
+  background: linear-gradient(90deg, rgba(29,86,205,1) 0%, rgba(100,147,235,1) 82%);
 }
 
 .water-border{
@@ -728,7 +734,8 @@ flex-direction: column;
 }
 
 .steel{
-  background-color:#B7B9D0;
+  background: rgb(124,128,170);
+  background: linear-gradient(90deg, rgba(124,128,170,1) 0%, rgba(183,185,208,1) 82%);
 }
 
 .steel-border{
@@ -744,7 +751,8 @@ flex-direction: column;
 }
 
 .normal{
-  background-color:#AAA67F;
+ background: rgb(129,124,75);
+ background: linear-gradient(90deg, rgba(129,124,75,1) 0%, rgba(170,166,127,1) 82%);
 }
 
 .normal-border{
@@ -760,11 +768,13 @@ flex-direction: column;
 }
 
 .ghost{
-  background-color:#70559B;
+  background: rgb(73,26,149);
+  background: linear-gradient(90deg, rgba(73,26,149,1) 0%, rgba(112,85,155,1) 82%);
 }
 
 .ghost-border{
-  border: 2px solid #70559B;
+  background: rgb(94,50,163);
+  background: linear-gradient(90deg, rgba(94,50,163,1) 0%, rgba(112,85,155,1) 82%);
 }
 
 .ghost-color-txt{
@@ -776,7 +786,8 @@ flex-direction: column;
 }
 
 .psychic{
-  background-color:#FB5584;
+  background: rgb(221,61,107);
+background: linear-gradient(90deg, rgba(221,61,107,1) 0%, rgba(251,85,132,1) 68%);
 }
 
 .psychic-border{
@@ -792,7 +803,8 @@ flex-direction: column;
 }
 
 .bug{
-  background-color:#A7B723;
+  background: rgb(143,159,11);
+  background: linear-gradient(90deg, rgba(143,159,11,1) 0%, rgba(167,183,35,1) 82%);
 }
 
 .bug-border{
@@ -808,7 +820,8 @@ flex-direction: column;
 }
 
 .electric{
-  background-color:#F9CF30;
+  background: rgb(251,170,64);
+  background: linear-gradient(90deg, rgba(251,170,64,1) 0%, rgba(249,207,48,1) 87%);
 }
 
 .electric-border{
@@ -824,7 +837,8 @@ flex-direction: column;
 }
 
 .poison{
-  background-color:#A43E9E;
+  background: rgb(113,8,107);
+  background: linear-gradient(90deg, rgba(113,8,107,1) 0%, rgba(164,62,158,1) 82%);
 }
 
 .poison-border{
@@ -840,7 +854,8 @@ flex-direction: column;
 }
 
 .flying{
-  background-color:#A891EC;
+background: rgb(135,99,214);
+background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68%);
 }
 
 .flying-border{
@@ -856,7 +871,8 @@ flex-direction: column;
 }
 
 .dark{
-  background-color:#75574C;
+  background: rgb(98,58,43);
+  background: linear-gradient(90deg, rgba(98,58,43,1) 0%, rgba(117,87,76,1) 82%);
 }
 
 .dark-border{
@@ -872,7 +888,8 @@ flex-direction: column;
 }
 
 .rock{
-  background-color:#BC9E31;
+  background: rgb(143,114,11);
+  background: linear-gradient(90deg, rgba(143,114,11,1) 0%, rgba(188,158,49,1) 82%);
 }
 
 .rock-border{
@@ -888,7 +905,8 @@ flex-direction: column;
 }
 
 .ice{
-  background-color:#9AD6DF;
+  background: rgb(40,161,180);
+  background: linear-gradient(90deg, rgba(40,161,180,1) 0%, rgba(154,214,223,1) 82%);
 }
 
 .ice-border{
@@ -952,7 +970,8 @@ flex-direction: column;
 }
 
 .dragon{
-  background-color:#7037FF;
+  background: rgb(29,4,130);
+  background: linear-gradient(90deg, rgba(29,4,130,1) 0%, rgba(112,55,255,1) 87%);
 }
 
 .dragon-border{

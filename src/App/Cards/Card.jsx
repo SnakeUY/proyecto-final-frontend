@@ -7,7 +7,7 @@ const Card = (props) =>{
     }
     return(
         <Link to={'/'+props.number}>
-            <div className="box">
+            <div>
                 <div className={props.type}>
                     <div className="number-flex">
                         <span className="number-span">#{getZeroes(props.number)}</span>
