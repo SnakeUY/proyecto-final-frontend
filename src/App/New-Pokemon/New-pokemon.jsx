@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom"
 const NewPokemonBox = () =>{
     const navigate = useNavigate()
     return(
-        <div className='box' style={{cursor: "pointer"}} onClick={()=> navigate('./addpokemon') }>
-            <div className="new-pokemon-border box-image">
+        <div style={{cursor: "pointer"}} onClick={()=> navigate('./addpokemon') }>
+            <div className="new-pokemon-border box">
                 <span/>
                 <img className="mini" src="./Imagenes/15273.png" alt="" />  
             </div>

@@ -15,7 +15,7 @@ const PokemonList = ({list, getStoredToken}) =>{
                         let pokemonTypeOne = pokemon.idtype_types[0].type
                         return (
                             <Card key={pokemon.id}
-                            type={`${pokemonTypeOne.toLowerCase()}-border ${pokemonTypeOne.toLowerCase()}-color-txt box-image`} 
+                            type={`${pokemonTypeOne.toLowerCase()}-border ${pokemonTypeOne.toLowerCase()}-color-txt box`} 
                             number={`${pokemon.id}`}
                             pokemon={`${pokemon.pokeurl}`}
                             title={`${pokemonTypeOne.toLowerCase()} name-box`}
