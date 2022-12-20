@@ -62,6 +62,7 @@ const CardInformation = () =>{
                 </div>
                 
                 <div className='pokemon-image-container'>
+                    <div>
                     {
                         pokemon[index-1] &&  (
                             <Link to={'/'+pokemon[index-1].id}>
@@ -69,7 +70,7 @@ const CardInformation = () =>{
                         </Link>
                         )
                     }
-                
+                    </div>
                     <img className={`${state.pokemon.name.toLowerCase()}-image`} src={state.pokemon.pokeurl} style={{height: "200px",weight:"200px"}}/>
                     <div>
                     {

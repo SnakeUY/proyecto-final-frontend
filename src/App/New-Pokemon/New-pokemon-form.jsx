@@ -96,6 +96,7 @@ const NewPokemonForm = ({getStoredToken}) =>{
                                     setMoves={setSecondMove}/>
                             </div>
                         </div>
+
                     <div className="stats-form-container">
                         <span>Add Image</span>
                         <div className="add-pokemon-image"><img src={state.pokeurl} style={{height:"200px",weight:"200px"}}/></div>
@@ -136,16 +137,6 @@ const NewPokemonForm = ({getStoredToken}) =>{
                                 placeholder="Height" 
                                 name="height"
                                 onChange={(e) => setState({...state, height:e.target.value})}
-                                />
-                        </div>
-
-                        <div className="stats-form-container">
-                            <span>Price</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="Price" 
-                                name="price"
-                                onChange={(e) => setState({...state, price:e.target.value})}
                                 />
                         </div>
 
@@ -219,6 +210,16 @@ const NewPokemonForm = ({getStoredToken}) =>{
                             max={200}
                             onChange={(e) => setState({...state, spd:e.target.value})}
                             />
+                        </div>
+
+                        <div className="stats-form-container">
+                            <span>Price</span>
+                            <input className="input-stats" 
+                                type="number" 
+                                placeholder="Price" 
+                                name="price"
+                                onChange={(e) => setState({...state, price:e.target.value})}
+                                />
                         </div>
                 </form>
                 <div className="form-buttons">

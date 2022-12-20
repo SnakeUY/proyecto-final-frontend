@@ -42,10 +42,9 @@ const Login = (props) =>{
   }
     
     return(
-        <div className="background-login form-container">
+        <div className="form-container background-login">
                 <div className="div-arrow-back">
                     <img className="arrow-back" src="./imagenes/flecha.png" alt="" onClick={backPrincipal} />
-                
                 </div>
                 <form className="login-inputs" action="#">
                   
@@ -54,6 +53,7 @@ const Login = (props) =>{
                          Login error.
                     </div>}
 
+                  <img className="pokemon-logo-login" src="./Imagenes/pokemon-logo.png" alt="" />
                     <input className="input" 
                         type="email" 
                         placeholder="E-mail"

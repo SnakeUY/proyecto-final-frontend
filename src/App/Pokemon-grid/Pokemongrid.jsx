@@ -14,7 +14,7 @@ function PokemonGrid ({logout, login, isLog , getStoredToken}){
   
       async function fetchData(){
         getPokemons(pokemon=>{
-          setPokemonList(pokemon)
+          setPokemonList(pokemon.sort((a, b) => a.id - b.id))
         })
         getStoredToken()
       }
@@ -32,7 +32,7 @@ function PokemonGrid ({logout, login, isLog , getStoredToken}){
         setPokemonOrder("AZ")
       }
       else{
-        let changedOrder = pokemonList.sort((a, b) => a.id -b.id)
+        let changedOrder = pokemonList.sort((a, b) => a.id - b.id)
         setPokemonList(changedOrder)
         setPokemonOrder("#")
       }

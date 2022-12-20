@@ -48,6 +48,13 @@ body{
 /*LOGIN*/
 .background-login{
   background-image: url("../public/Imagenes/login-background.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.pokemon-logo-login{
+  width: 30vw;
+  height: 20vh;
 }
 
 .div-arrow-back{
@@ -75,7 +82,7 @@ body{
 /*FORM NEW POKEMON*/
 .form-container{
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -93,13 +100,13 @@ body{
 
 .first-form{
   width: 40vw;
-  height: 45vh;
+  height: 46vh;
   display: flex;
   flex-wrap: wrap;
 }
 
 .first-inputs{
-  width: 45%;
+  width: 18vw;
   height: 5vh;
   margin: 2vh 0vh;
   border-radius: 0.5rem;
@@ -115,7 +122,7 @@ body{
 }
 
 .input-stats{
-  width: 5vw;
+  width: 6vw;
   height: 5vh;
   margin: 2vh 0vh;
   border-radius: 0.5rem;
@@ -131,7 +138,7 @@ body{
 
 .stats-form{
   width: 40vw;
-  height: 25vh;
+  height: 26vh;
 }
 
 .form-buttons{
@@ -140,8 +147,8 @@ body{
 }
 
 .add-pokemon-image{
-  width: 200px;
-  height: 200px;
+  width: 15vw;
+  height: 28vh;
   margin-top: 2%;
   display: flex;
   align-items: center;
@@ -273,6 +280,7 @@ align-items: center;
 /*POKEMON LIST*/
 .list-container{
   width: 45vw;
+  height: 200vh;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -281,6 +289,7 @@ align-items: center;
   gap: 1.5vw;
   z-index: 0;
   margin-left: 5%;
+  margin-bottom: 2vh;
 }
 
 /*CARD LIST*/
@@ -417,14 +426,6 @@ align-items: center;
   justify-content: space-around;
   top: 10vh;
   z-index: 3;
-}
-
-.bulbasaur-image{
-  margin-left:9vh;
-}
-
-.aron-image{
-  margin-right:9vh;
 }
 
 .frame-arrow{
@@ -773,8 +774,7 @@ background: linear-gradient(90deg, rgba(223,82,47,1) 0%, rgba(245,125,49,1) 68%)
 }
 
 .ghost-border{
-  background: rgb(94,50,163);
-  background: linear-gradient(90deg, rgba(94,50,163,1) 0%, rgba(112,85,155,1) 82%);
+  border: 2px solid #70559B;
 }
 
 .ghost-color-txt{
