@@ -99,8 +99,8 @@ const NewPokemonForm = ({getStoredToken}) =>{
 
                     <div className="stats-form-container">
                         <span>Add Image</span>
-                        <div className="add-pokemon-image"><img src={state.pokeurl} style={{height:"200px",weight:"200px"}}/></div>
-                        <input className="input-stats url-input" 
+                        <div className="add-pokemon-image"><img className="new-pokemon-image-url" src={state.pokeurl}/></div>
+                        <textarea className="input-stats url-input" 
                                 type="text" 
                                 placeholder="URL"
                                 name="url-image"
