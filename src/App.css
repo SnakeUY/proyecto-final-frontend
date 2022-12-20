@@ -985,3 +985,173 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
 .dragon-bar-bgrn{
   background-color: #7037FF;
 }
+
+.btn-log {
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(207, 203, 203);
+}
+
+.big-card-pokeimage{
+  width: 200px;
+  height: 200px; 
+ }
+
+@media (max-width: 600px) and (min-height: 350px) {
+
+  .app-navbar {
+    width: 70vw;
+    height: 80vh;
+  }
+ .navbar {
+   height: 15vh;
+   margin-bottom: 10px;
+ }
+  .title {
+    gap: 10px;
+  }
+
+  .pokemon-logo h1 {
+    font-size: 32px
+  }
+  .logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+ .box {
+  width: 33vw;
+  height: 16vh;
+}
+
+ .mini {
+  width: 70%;
+  height: 70%;
+  margin-top: 3.5vh;
+ }
+ .name-box {
+  font-size: 14px;
+ }
+ .form-buscar {
+ margin-top: 10px;
+
+ }
+ .list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 70vw;
+  height: auto;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1vh 0 0 0;
+ }
+ .btn-log {
+  font-size: 10px;
+ }
+
+ /** login **/
+ .form-container {
+  width:100%;
+  height: 100%;
+ }
+ .arrow-back {
+  height: 15%;
+  position: fixed;
+  top: 3%;
+  left: 35%;
+  
+ }
+
+ .background-login {
+  background-size:cover;
+  background-position-x: 50%;
+  background-position-y: 70%;
+ }
+ /* big-card-container */ 
+ .big-card-container {
+  width: 90%;
+  height: 90%;
+ }
+.big-card-name{
+  font-size: larger;
+}
+.pokemon-image-container{
+  width: 100%;
+}
+
+.big-card-pokeimage{
+  width: 170px;
+  height: 170px; 
+ }
+ 
+
+ .table-type {
+  margin-top: 4vh;
+ }
+
+ .back-arrow{
+  width: 6vw;
+ }
+ .container-type {
+  height: 65%;
+ }
+
+ .body-stat {
+  width: 18vw;
+ }
+
+.stat-composition{
+  width: 10%;
+}
+ .stat-number {
+  width: 85%;
+  
+ }
+}
+
+/* TENER EN CUENTA MEDIDAS ALTURAS MAYORES A 700 PX*/
+@media (max-width: 600px) and (min-height: 750px) { 
+  .big-card-container {
+    width: 90%;
+    height: 78%;
+   }
+}
+
+
+@media (max-width: 1025px) and (orientation: landscape) { 
+  .big-card-container {
+    width: 65%;
+    height: 95%;
+   }
+   .pokemon-image-container{
+    top: 3vh;
+    width: 100%;
+    margin: 0px;
+   }
+   .container-type {
+    height: 70%;
+   }
+}
+
+@media (max-width: 850px) and (orientation: landscape) { 
+  .big-card-container {
+    width: 75%;
+    height: 95%;
+   }
+   .big-card-nav {
+    margin: 2vh;
+   }
+   .big-card-name {
+    font-size: large;
+   }
+   .big-card-pokeimage{
+    width: 140px;
+    height: 140px;
+   }
+   .about {
+
+   }
+
+}
