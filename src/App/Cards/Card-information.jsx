@@ -71,7 +71,7 @@ const CardInformation = () =>{
                         )
                     }
                     </div>
-                    <img className={`${state.pokemon.name.toLowerCase()}-image`} src={state.pokemon.pokeurl} style={{height: "200px",weight:"200px"}}/>
+                    <img className={`${state.pokemon.name.toLowerCase()}-image big-card-pokeimage`} src={state.pokemon.pokeurl}/>
                     <div>
                     {
                         
