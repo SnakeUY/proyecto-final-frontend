@@ -268,6 +268,21 @@ align-items: center;
   border: none;
 }
 
+.login-logout-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  width: 2vw;
+  height: 5vh;
+}
+
+.user-image{
+  width: 3vw;
+  height: 3vh;
+}
+
 .logo{
   width: 30px;
   height: 30px;

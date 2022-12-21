@@ -253,11 +253,7 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredD
             )
             console.log(exist)
 
-<<<<<<< HEAD
-            if (exist=== false) {
-=======
         if(exist === false) {
->>>>>>> c63b94260c4c8946f7d32b1b99765ef3b1c765bd
 
         let newPoke = state
         const token = getStoredData("userToken")

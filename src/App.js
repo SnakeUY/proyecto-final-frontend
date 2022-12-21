@@ -14,10 +14,11 @@ function App() {
     return localStorage.getItem(data)
   }
 
-  const login = (token,email,money) => {
+  const login = (token,email,name,money) => {
     setIsLog(true)
     localStorage.setItem("userToken", token)
     localStorage.setItem("email", email)
+    localStorage.setItem("name", name)
     localStorage.setItem("money", money)
     return isLog
   }
