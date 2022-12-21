@@ -35,7 +35,7 @@ const Nav = (props) =>{
                 </div>
             </div>
 
-            <div>
+            <div className="input-index-container">
                 <form action="#">
                     <input className="input" 
                         type="search" 

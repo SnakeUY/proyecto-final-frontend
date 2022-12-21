@@ -249,9 +249,6 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredT
             })
             console.log(exist)
 
-            
-            
-            
             if (exist=== false) {
 
         let newPoke = state
@@ -264,29 +261,33 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredT
             idtype:typeOne
         }
     }
+
     if(!isNaN(typeTwo)){
        tpyeTwoArr = {
             idpoke:state.id,
             idtype:typeTwo
         }
     }
+
     if(!isNaN(firstMove)){
     moveOneArr = {
         idpoke:state.id,
         idmove:firstMove
     }
     }
+    
     if(!isNaN(secondMove)){
         moveTwoArr = {
             idpoke:state.id,
             idmove:secondMove
         }
+        }
+        await addPokemon(newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr)
+        alert("Pokemon creado")
+        navigate(`/${newPoke.id}`)
+        }
     }
-    await addPokemon(newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr)
-    alert("Pokemon creado")
-    navigate(`/${newPoke.id}`)
-    }
-    }else{
+    else{
         alert("El id del pokemon ya existe")
     }
 }

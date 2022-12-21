@@ -16,7 +16,7 @@ const Card = (props) =>{
                 </div>
                 
                 <div className={props.title}>
-                    <span>{props.name}</span>
+                    <span className="span-pokemonlist-name">{props.name}</span>
                 </div>
             </div>
         </Link>

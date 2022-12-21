@@ -11,7 +11,7 @@ const NewPokemonBox = () =>{
             </div>
 
                 <div className='new-pokemon name-box'>
-                    <span>Agregar</span>
+                    <span className="span-pokemonlist-name">Agregar</span>
                 </div>
             </div>
     )
