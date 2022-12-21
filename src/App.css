@@ -1022,8 +1022,8 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
 }
 
 .big-card-pokeimage{
-  width: 200px;
-  height: 200px; 
+  width: 14vw;
+  height: 27vh; 
  }
 
 @media (max-width: 600px) and (min-height: 350px) {
