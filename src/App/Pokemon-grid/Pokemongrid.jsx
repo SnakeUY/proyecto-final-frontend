@@ -4,7 +4,7 @@ import Nav from '../Pokemon-Search/Nav';
 import PokemonList from '../List/PokemonList';
 import { getPokemons } from "../../Services/backend-connection";
 
-function PokemonGrid ({logout, login, isLog , getStoredToken}){
+function PokemonGrid ({logout, login, isLog , getStoredData}){
  
     const [pokemonList,setPokemonList] = useState ([])
     const [pokemonOrder,setPokemonOrder] = useState ("#")
@@ -16,7 +16,7 @@ function PokemonGrid ({logout, login, isLog , getStoredToken}){
         getPokemons(pokemon=>{
           setPokemonList(pokemon.sort((a, b) => a.id - b.id))
         })
-        getStoredToken()
+        getStoredData("userToken")
       }
       fetchData()
     },[])
@@ -49,13 +49,13 @@ function PokemonGrid ({logout, login, isLog , getStoredToken}){
                  logout={logout}
                  login={login}
                  isLog={isLog}
-                 getStoredToken={getStoredToken}
+                 getStoredData={getStoredData}
                  />
           </div>
           <PokemonList 
               list={pokemonList.filter((pokemon)=>pokemon.name.toLowerCase().includes(pokemonSearch.toLowerCase()))}
             
-              getStoredToken={getStoredToken}
+              getStoredData={getStoredData}
             />
       </>
     );

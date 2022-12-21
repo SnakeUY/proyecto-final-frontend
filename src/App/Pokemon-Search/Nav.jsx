@@ -23,9 +23,9 @@ const Nav = (props) =>{
                     <h1>Pokédex</h1>
                 </div>
                 <div className="order-button-box">
-                    { !props.getStoredToken() 
+                    { !props.getStoredData("userToken") 
                         ? <button onClick={loginClick}> login </button> 
-                        : <button onClick={logoutClick}> logout </button>
+                        : <> <p style={{margin: "10px"}}> Hola {props.getStoredData("email") } Tienes {props.getStoredData("money") } $</p>  <button onClick={logoutClick}> logout </button> </>
                     }
                     <button className="order-button" 
                         onClick={()=>{props.changeOrder()}}>

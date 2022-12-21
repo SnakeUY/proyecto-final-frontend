@@ -28,8 +28,16 @@ const Login = (props) =>{
       const responseData = await postLogin(credentialsd)
   
       if (responseData.status === 'ok'){
-        props.login(responseData.token)
-        console.log(props.isLog)
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "auth-token": responseData.token },
+          body: JSON.stringify(credentialsd),
+        };
+        const fetchResponse2 = await fetch("http://localhost:8000/users/getinfo", requestOptions)
+        const responseData2 = await fetchResponse2.json()
+        props.login(responseData.token,responseData2.email, responseData2.money)
+        
+        
         navigate("/")
           
     } else {

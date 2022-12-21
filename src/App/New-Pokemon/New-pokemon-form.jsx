@@ -3,8 +3,8 @@ import { PokeTypes } from "./New-pokemon-Types"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { PokeMoves } from "./New-pokemon-Moves";
-import { addPokemon, insertMove, insertType, getPokemonById } from "../../Services/backend-connection"
-const NewPokemonForm = ({getStoredToken}) =>{
+import { addPokemon, getPokemonById } from "../../Services/backend-connection"
+const NewPokemonForm = ({getStoredData}) =>{
     const navigate = useNavigate()
 
     const [state,setState] = useState({
@@ -29,7 +29,7 @@ const NewPokemonForm = ({getStoredToken}) =>{
       const [secondMove, setSecondMove] = useState({})
       const sendToken = async () => {
 
-            const token = getStoredToken()
+            const token = getStoredData("userToken")
             console.log(token)
             const settings = { 
             method: 'POST', 
@@ -223,14 +223,14 @@ const NewPokemonForm = ({getStoredToken}) =>{
                         </div>
                 </form>
                 <div className="form-buttons">
-                    <button className="enter-button"style={{cursor: "pointer"}} onClick={()=> addNewPoke({state,typeOne,typeTwo,firstMove,secondMove,getStoredToken,navigate})}>Add</button>
+                    <button className="enter-button"style={{cursor: "pointer"}} onClick={()=> addNewPoke({state,typeOne,typeTwo,firstMove,secondMove,getStoredData,navigate})}>Add</button>
                     <button className="enter-button" onClick={()=> navigate('/') }>Back</button>
                 </div>
             </div>
     )
 }
 
-const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredToken,navigate}) =>{
+const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredData,navigate}) =>{
     if(state.id == "" || state.name == "" ){
         alert("Todos los campos son obligatorios")
     } else if(typeOne == typeTwo){
@@ -243,28 +243,20 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredT
             {
 
             let exist
-
             await getPokemonById(state.id)
             .then((pokemon) =>
                 {
-                console.log(pokemon)
-                console.log(state.id)
                 if(pokemon[0].id == state.id){
                     exist = true
                 }else exist = false
             }
             )
-            
-
             console.log(exist)
 
-            
-            
-            
         if(exist === false) {
 
         let newPoke = state
-        const token = getStoredToken()
+        const token = getStoredData("userToken")
         let tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr = {}
 
     if(!isNaN(typeOne)){{
