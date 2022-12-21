@@ -241,18 +241,27 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredT
                 alert("Los stats no pueden ser negativos")
             } else 
             {
-            let exist = false
-            await getPokemonById(state.id,pokemon => {
+
+            let exist
+
+            await getPokemonById(state.id)
+            .then((pokemon) =>
+                {
+                console.log(pokemon)
+                console.log(state.id)
                 if(pokemon[0].id == state.id){
                     exist = true
                 }else exist = false
-            })
+            }
+            )
+            
+
             console.log(exist)
 
             
             
             
-            if (exist=== false) {
+        if(exist === false) {
 
         let newPoke = state
         const token = getStoredToken()
