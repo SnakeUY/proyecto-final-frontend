@@ -25,7 +25,7 @@ const Nav = (props) =>{
                 <div className="order-button-box">
                     { !props.getStoredData("userToken") 
                         ? <button className="login-logout-button" onClick={loginClick}><img className="user-image" src="../Imagenes/user.svg" alt="" /></button> 
-                        : <> <p style={{margin: "10px"}}> Hola {props.getStoredData("name") } Tienes {props.getStoredData("money") } $</p> <button className="login-logout-button" onClick={logoutClick}><img className="user-image" src="../Imagenes/power.svg" alt="" /></button> </>
+                        : <> <p style={{margin: "10px"}}> Hola {props.getStoredData("name") } tienes {props.getStoredData("money") } $</p> <button className="login-logout-button" onClick={logoutClick}><img className="user-image" src="../Imagenes/power.svg" alt="" /></button> </>
                     }
                     <button className="order-button" 
                         onClick={()=>{props.changeOrder()}}>

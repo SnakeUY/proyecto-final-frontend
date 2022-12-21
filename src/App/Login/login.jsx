@@ -35,7 +35,7 @@ const Login = (props) =>{
         };
         const fetchResponse2 = await fetch("http://localhost:8000/users/getinfo", requestOptions)
         const responseData2 = await fetchResponse2.json()
-        props.login(responseData.token,responseData2.email,responseData2.name, responseData2.money)
+        props.login(responseData.token,responseData2.email,responseData2.name, parseInt(responseData2.money))
         
         
         navigate("/")
