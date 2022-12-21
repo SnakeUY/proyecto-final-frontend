@@ -3,7 +3,7 @@ import { PokeTypes } from "./New-pokemon-Types"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { PokeMoves } from "./New-pokemon-Moves";
-import { addPokemon, insertMove, insertType } from "../../Services/backend-connection"
+import { addPokemon, insertMove, insertType, getPokemonById } from "../../Services/backend-connection"
 const NewPokemonForm = ({getStoredToken}) =>{
     const navigate = useNavigate()
 
@@ -239,73 +239,58 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredT
             alert("Los stats no puede ser superiores a 200")}
             else if(state.hp < 0 || state.atk < 0 || state.def < 0 || state.satk < 0 || state.sdef < 0 || state.spd < 0){
                 alert("Los stats no pueden ser negativos")
-            } else {
+            } else 
+            {
+            let exist = false
+            await getPokemonById(state.id,pokemon => {
+                if(pokemon[0].id == state.id){
+                    exist = true
+                }else exist = false
+            })
+            console.log(exist)
+
+            
+            
+            
+            if (exist=== false) {
+
         let newPoke = state
-        console.log(newPoke)
-        //addPokemonToDb(newPoke)
-        
-        //connectPokemonTypeToDb(typeOne)
-        //connectPokemonTypeToDb(typeTwo)
-        console.log("ID")
-        console.log(newPoke.id)
-        console.log("TYPES")
-        console.log(typeOne)
-        console.log(typeTwo)
-
-        console.log("MOVES")
-        console.log(firstMove)
-        console.log(secondMove)
-        alert("Pokemon creado")
         const token = getStoredToken()
-        console.log("Token")
-        console.log(token)
+        let tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr = {}
 
-    let tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr = {}
-
-        if(!isNaN(typeOne)){{
-            tpyeOneArr = {
-                idpoke:state.id,
-                idtype:typeOne
-            }
-            console.log("arr")
-            console.log(tpyeOneArr)
-
+    if(!isNaN(typeOne)){{
+        tpyeOneArr = {
+            idpoke:state.id,
+            idtype:typeOne
         }
+    }
     if(!isNaN(typeTwo)){
        tpyeTwoArr = {
             idpoke:state.id,
             idtype:typeTwo
         }
-        console.log(tpyeTwoArr)
     }
     if(!isNaN(firstMove)){
     moveOneArr = {
         idpoke:state.id,
         idmove:firstMove
     }
-    console.log(moveOneArr)
-
     }
-
     if(!isNaN(secondMove)){
         moveTwoArr = {
             idpoke:state.id,
             idmove:secondMove
         }
-        console.log(moveTwoArr)
     }
-
-
     await addPokemon(newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr)
-
-
-        /*
-    const [typeOne,     setTypeOne]      =   useState({})
-    const [typeTwo,     setTypeTwo]      =   useState({})
-    const [firstMove,   setFirstMove]    =   useState({})
-    const [secondMove,  setSecondMove]   =   useState({})
-        */
-        }
+    alert("Pokemon creado")
+    navigate(`/${newPoke.id}`)
+    }
+    }else{
+        alert("El id del pokemon ya existe")
     }
 }
+}
+
+
 export default NewPokemonForm
