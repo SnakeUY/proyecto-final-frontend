@@ -6,11 +6,12 @@ export const getPokemons = (onSuccess,onFinish) =>
     .then(onSuccess)
     .finally(onFinish);
 
-export const getPokemonById = (id,onSuccess,onFinish) =>{
-  fetch(`${url}pokemons/${id}`)
+export const getPokemonById = (id) =>{
+  return fetch(`${url}pokemons/${id}`)
     .then(response => response.json())
-    .then(onSuccess)
-    .finally(onFinish);
+    //.then(onSuccess)
+    //.finally(onFinish);
+    
 }
 
 export const getTypes = (onSuccess,onFinish) =>

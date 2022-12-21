@@ -2,14 +2,14 @@ import React from "react";
 import Card from "../Cards/Card";
 import NewPokemonBox from "../New-Pokemon/New-pokemon";
 
-const PokemonList = ({list, getStoredToken}) =>{
+const PokemonList = ({list, getStoredData}) =>{
    
     return(
         <>
-            {getStoredToken() ? 
+            {getStoredData("userToken") ? 
             <>
             <div className="list-container">
-                <NewPokemonBox getStoredToken={getStoredToken}/>
+                <NewPokemonBox/>
                 {
                     list.map((pokemon)=>{
                         let pokemonTypeOne = pokemon.idtype_types[0].type
