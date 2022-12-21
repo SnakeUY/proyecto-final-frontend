@@ -14,7 +14,7 @@ const CardInformation = () =>{
 
     async function fetchData(){
         await getPokemons(pokemon=>{
-          setPokemon(pokemon)
+          setPokemon(pokemon.sort((a, b) => a.id - b.id))
         })
       }
 

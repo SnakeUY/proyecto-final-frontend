@@ -7,7 +7,7 @@ export const getPokemons = (onSuccess,onFinish) =>
     .finally(onFinish);
 
 export const getPokemonById = (id,onSuccess,onFinish) =>{
-  fetch(`${url}pokemons/?id=${id}`)
+  fetch(`${url}pokemons/${id}`)
     .then(response => response.json())
     .then(onSuccess)
     .finally(onFinish);
