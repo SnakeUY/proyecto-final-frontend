@@ -3,7 +3,7 @@ import { PokeTypes } from "./New-pokemon-Types"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { PokeMoves } from "./New-pokemon-Moves";
-import { addPokemon, getPokemonById } from "../../Services/backend-connection"
+import { addMoney, addPokemon, getPokemonById } from "../../Services/backend-connection"
 const NewPokemonForm = ({getStoredData}) =>{
     const navigate = useNavigate()
 
@@ -99,8 +99,8 @@ const NewPokemonForm = ({getStoredData}) =>{
 
                     <div className="stats-form-container">
                         <span>Add Image</span>
-                        <div className="add-pokemon-image"><img className="new-pokemon-image-url" src={state.pokeurl}/></div>
-                        <textarea className="input-stats url-input" 
+                        <div className="add-pokemon-image"><img src={state.pokeurl} style={{height:"200px",weight:"200px"}}/></div>
+                        <input className="input-stats url-input" 
                                 type="text" 
                                 placeholder="URL"
                                 name="url-image"
@@ -239,17 +239,23 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredD
             alert("Los stats no puede ser superiores a 200")}
             else if(state.hp < 0 || state.atk < 0 || state.def < 0 || state.satk < 0 || state.sdef < 0 || state.spd < 0){
                 alert("Los stats no pueden ser negativos")
-            } else 
+            } else if(state.price < 100){
+                alert("El precio no puede ser menor a 100")
+            }else
             {
 
             let exist
             await getPokemonById(state.id)
             .then((pokemon) =>
                 {
+                    console.log(pokemon)
+                if(pokemon.length > 0){
                 if(pokemon[0].id == state.id){
                     exist = true
                 }else exist = false
-            }
+            }else exist = false
+        }
+
             )
             console.log(exist)
 
@@ -265,33 +271,47 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredD
             idtype:typeOne
         }
     }
-
     if(!isNaN(typeTwo)){
        tpyeTwoArr = {
             idpoke:state.id,
             idtype:typeTwo
         }
     }
-
     if(!isNaN(firstMove)){
     moveOneArr = {
         idpoke:state.id,
         idmove:firstMove
     }
     }
-    
     if(!isNaN(secondMove)){
         moveTwoArr = {
             idpoke:state.id,
             idmove:secondMove
         }
-        }
-        await addPokemon(newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr)
-        alert("Pokemon creado")
-        navigate(`/${newPoke.id}`)
-        }
     }
-    else{
+    await addPokemon(newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr)
+    alert("Pokemon creado")
+
+
+    const email = getStoredData("email")
+    const credential = { email: email }
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "auth-token": token },
+        body: JSON.stringify(credential),
+      };
+      const fetchResponse = await fetch("http://localhost:8000/users/get-money", requestOptions)
+      const responseData = await fetchResponse.json()
+      console.log(responseData.money)
+      const money = parseInt(responseData.money) + 50
+      console.log(money)
+
+      await addMoney(email,money,token)
+      localStorage.removeItem("money")
+      localStorage.setItem("money", money)
+    navigate(`/${newPoke.id}`)
+    }
+    }else{
         alert("El id del pokemon ya existe")
     }
 }
