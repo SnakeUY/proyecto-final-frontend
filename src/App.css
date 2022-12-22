@@ -249,7 +249,7 @@ a{
 }
 
 h1{
-  font-size: xx-large;
+  font-size: 2vw;
   font-weight: bolder; 
 }
 
@@ -264,14 +264,21 @@ align-items: center;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  width: 17vw;
+  width: 20vw;
   height: 5vh;
 }
 
 .order-button{
   background-color:#f7f7f7;
   border: none;
+  font-size: 1vw;
 }
+
+.order-button-arrow{
+  width: 1vw;
+  height: 1vw;
+  margin-right: 1vh;
+ }
 
 .user-message-money{
   font-size: 1vw;
@@ -294,8 +301,8 @@ align-items: center;
 }
 
 .logo{
-  width: 30px;
-  height: 30px;
+  width: 2vw;
+  height: 2vw;
   margin-right: 5px;
 }
 
@@ -515,6 +522,7 @@ align-items: center;
   width: 90%;
   margin: 2vh;
 }
+
 .description{
   font-weight: lighter;
   font-size: x-small;
@@ -582,32 +590,32 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
   margin-top: 1vh;
+  height: 10vh;
 }
 
 .stat-box-left{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .stat-composition{
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   font-size: x-small;
   font-weight: bold;
-  gap: 2px;
 }
 
 .stat-number{
   width: 2vw;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   font-size: x-small;
   font-weight: bold;
   margin: 0 2vh 0 2vh;
-  gap: 2px;
   border-left: 2px solid #E0E0E0;
 }
 
@@ -615,7 +623,8 @@ flex-direction: column;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
+  align-items: center;
+  gap: 12%;
 }
 
 .stat-bar{
@@ -627,6 +636,16 @@ flex-direction: column;
 .inner-bar{
   border-radius: 1rem;
   height: 100%;
+}
+
+.catch-button{
+  width: 4vw;
+  height: 3vh;
+  margin: 1vw;
+  background-color: #cf3a3a;
+  color: white;
+  border-radius: 1rem;
+  border: none;
 }
 
 /* LOADER */
@@ -1063,20 +1082,19 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    width: 40vw;
+    width: 42vw;
     height: 5vh;
    }
 
    .order-button-arrow{
     width: 2vw;
     height: 2vh;
-    margin: 1vw;
    }
 
    .order-button {
     background-color: #f7f7f7;
     border: none;
-    width: 5vw;
+    font-size: 3vw;
 }
 
    .user-image {
@@ -1098,8 +1116,8 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
     font-size: 20px
   }
   .logo {
-    width: 25px;
-    height: 25px;
+    width: 5vw;
+    height: 5vh;
   }
   
 
@@ -1173,8 +1191,8 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
 }
 
 .big-card-pokeimage{
-  width: 170px;
-  height: 170px; 
+  width: 36vw;
+  height: 22vh; 
  }
  
 
@@ -1186,30 +1204,56 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
   width: 6vw;
  }
  .container-type {
-  height: 65%;
+  height: 70%;
  }
 
  .body-stat {
   width: 18vw;
  }
 
+ .description-box{
+  margin: 0%;
+ }
+
+ .base-stats-title{
+  margin: 2vh;
+}
+
  .base-stats-container{
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 50vw;
  }
 
+ .stat-bar-container{
+  height: 14vh;
+  margin-top: 0%;
+ }
+
+ .stats-container{
+  height: 30vh;
+ }
+
  .stat-bar{
-  width: 40vw;
+  width: 50vw;
  }
 
 .stat-composition{
-  width: 10%;
+  width: 4vw;
 }
+
  .stat-number {
-  width: 85%;
+  width: 10vw;
+  margin-left: 5vw;
   
  }
+
+ .catch-button{
+  width: 15vw;
+  height: 4vh;
+ }
+
 }
 
 /* TENER EN CUENTA MEDIDAS ALTURAS MAYORES A 700 PX*/
@@ -1250,9 +1294,6 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
    .big-card-pokeimage{
     width: 140px;
     height: 140px;
-   }
-   .about {
-
    }
 
 }
