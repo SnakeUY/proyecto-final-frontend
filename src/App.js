@@ -38,7 +38,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route path='/' element={<PokemonGrid getStoredData={getStoredData} logout={logout} login={login} isLog={isLog}  />} />
-            <Route path='/:id' element={<CardInformation />} />
+            <Route path='/:id' element={<CardInformation getStoredData={getStoredData}/>} />
             <Route path='/login' element={<Login login={login} isLog={isLog} />} />
             <Route path='/addpokemon' element={<NewPokemonForm getStoredData={getStoredData} />} />
           </Routes>

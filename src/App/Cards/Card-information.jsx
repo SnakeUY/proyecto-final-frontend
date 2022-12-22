@@ -7,7 +7,7 @@ import Moves from "./Moves";
 import TableType from "./Table-type";
 import { useReducer } from "react";
 
-const CardInformation = () =>{
+const CardInformation = ({getStoredData}) =>{
     const [state,setState] = useReducer((state,newState)=>{return{...state,...newState}},{isLoading:true})
     const id = useParams().id
     const [pokemon,setPokemon] = useState([])
@@ -181,6 +181,10 @@ const CardInformation = () =>{
                                         <div style={{width:`${(state.pokemon.spd*100)/200}%`}} className={`${state.pokemon.idtype_types[0].type.toLowerCase()} inner-bar`}></div>
                                     </div>
                                 </div>
+                                <>
+                                {getStoredData("userToken") ? 
+                                <button>Catch</button>: <></>}
+                                </>
                             </div>
                     </div>
                 </div>

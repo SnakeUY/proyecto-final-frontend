@@ -238,7 +238,6 @@ a{
   height: 15vh;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2vh;
 }
 
 .title{
@@ -264,11 +263,19 @@ align-items: center;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
+  width: 17vw;
+  height: 5vh;
 }
 
 .order-button{
   background-color:#f7f7f7;
   border: none;
+}
+
+.user-message-money{
+  font-size: 1vw;
+  margin-right: 1vw;
 }
 
 .login-logout-button{
@@ -282,8 +289,8 @@ align-items: center;
 }
 
 .user-image{
-  width: 3vw;
-  height: 3vh;
+  width: 2vw;
+  height: 2vh;
 }
 
 .logo{
@@ -315,7 +322,6 @@ align-items: center;
   gap: 1.5vw;
   z-index: 0;
   margin-left: 5%;
-  margin-bottom: 2vh;
   padding: 1vh;
   overflow: scroll;
 }
@@ -1032,6 +1038,11 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
 
 @media (max-width: 600px) and (min-height: 350px) {
 
+
+  .user-message-money{
+    font-size: 2vw;
+  }
+
   .app-navbar {
     width: 70vw;
     height: 15vh;
@@ -1046,6 +1057,32 @@ background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68
     align-items:center;
     gap: 10px;
   }
+
+  .order-button-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40vw;
+    height: 5vh;
+   }
+
+   .order-button-arrow{
+    width: 2vw;
+    height: 2vh;
+    margin: 1vw;
+   }
+
+   .order-button {
+    background-color: #f7f7f7;
+    border: none;
+    width: 5vw;
+}
+
+   .user-image {
+    width: 3vw;
+    height: 3vh;
+}
 
   .input-index-container{
     display: flex;
