@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { PokeMoves } from "./New-pokemon-Moves";
 import { addMoney, addPokemon, getPokemonById } from "../../Services/backend-connection"
+import Error from "../Error/Error";
+
 const NewPokemonForm = ({getStoredData}) =>{
     const navigate = useNavigate()
 
@@ -27,6 +29,8 @@ const NewPokemonForm = ({getStoredData}) =>{
       const [typeTwo, setTypeTwo] = useState({})
       const [firstMove, setFirstMove] = useState({})
       const [secondMove, setSecondMove] = useState({})
+      const [error, setError] = useState("")
+
       const sendToken = async () => {
 
             const token = getStoredData("userToken")
@@ -42,7 +46,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                 const fetchResponse = await fetch(`http://localhost:8000/users/validate-token`, settings);
                 console.log(fetchResponse)
                 if(fetchResponse.ok === false){
-                    navigate("/")
+                    setError("401")
                 }
             
             } catch (e) {
@@ -52,181 +56,186 @@ const NewPokemonForm = ({getStoredData}) =>{
 
       sendToken()
     return(
-        <div className="form-container">
-                <form className="form-inputs first-form" action="#">
-                        <span>Name</span>
-                        <input className="first-inputs" 
-                            type="text" 
-                            placeholder="Name" 
-                            name="name"
-                            onChange={(e) => setState({...state, name:e.target.value})}
-                            />
-                        <span>Description</span>
-                        <input className="first-inputs" 
-                            type="text" 
-                            placeholder="Descripction" 
-                            name="description"
-                            onChange={(e) => setState({...state, description:e.target.value})}
-                            />
-                            
-                        <div className="options-form-container">
-                            <div className="option-container">
-                                <span>Types</span>
-                                <PokeTypes
-                                    text="Type 1"
-                                    types={typeOne}
-                                    settype={setTypeOne}
-                                    />
-                                <PokeTypes
-                                    text="Type 2"
-                                    types={typeTwo}
-                                    settype={setTypeTwo}
-                                    />
-                            </div>
-
-                            <div className="option-container">
-                                <span>Moves</span>
-                                <PokeMoves
-                                    text="1st Move"
-                                    moves={firstMove}
-                                    setMoves={setFirstMove}/>
-                                <PokeMoves
-                                    text="2nd Move"
-                                    moves={secondMove}
-                                    setMoves={setSecondMove}/>
-                            </div>
-                        </div>
-
-                    <div className="stats-form-container">
-                        <span>Add Image</span>
-                        <div className="add-pokemon-image"><img src={state.pokeurl} style={{height:"200px",weight:"200px"}}/></div>
-                        <input className="input-stats url-input" 
-                                type="text" 
-                                placeholder="URL"
-                                name="url-image"
-                                onChange={(e) => setState({...state, pokeurl:e.target.value})}
-                                />
-                    </div>
-                    </form>
-
-                <form className="form-inputs stats-form" action="">
-                        <div className="stats-form-container">
-                            <span>Number</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="id"
-                                name="id"
-                                onChange={(e) => setState({...state, id:e.target.value})}
-                                />
-                        </div>
-
-                        <div className="stats-form-container">
-                            <span>Weight</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="Weight" 
-                                name="weight"
-                                onChange={(e) => setState({...state, weight:e.target.value})}
-                                />
-                            </div>
-
-                        <div className="stats-form-container">
-                            <span>Height</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="Height" 
-                                name="height"
-                                onChange={(e) => setState({...state, height:e.target.value})}
-                                />
-                        </div>
-
-                        <div className="stats-form-container">
-                            <span>HP</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="HP" 
-                                name="hp"
-                                min={0}
-                                max={200}
-                                onChange={(e) => setState({...state, hp:e.target.value})}
-                                />
-                        </div>
-
-                        <div className="stats-form-container">
-                            <span>ATK</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="ATK" 
-                                name="atk"
-                                min={0}
-                                max={200}
-                                onChange={(e) => setState({...state, atk:e.target.value})}
-                                />
-                        </div>
-
-                        <div className="stats-form-container">
-                            <span>DEF</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="DEF" 
-                                name="def"
-                                min={0}
-                                max={200}
-                                onChange={(e) => setState({...state, def:e.target.value})}
-                                />
-                        </div>
-
-                        <div className="stats-form-container">                    
-                            <span>SATK</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="SATK" 
-                                name="satk"
-                                min={0}
-                                max={200}
-                                onChange={(e) => setState({...state, satk:e.target.value})}
-                                />
-                        </div>
-
-                        <div className="stats-form-container">
-                            <span>SDEF</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="SDEF" 
-                                name="sdef"
-                                min={0}
-                                max={200}
-                                onChange={(e) => setState({...state, sdef:e.target.value})}
-                                />
-                        </div>
-
-                        <div className="stats-form-container">
-                        <span>SPD</span>
-                        <input className="input-stats" 
-                            type="number" 
-                            placeholder="SPD" 
-                            name="spd"
-                            min={0}
-                            max={200}
-                            onChange={(e) => setState({...state, spd:e.target.value})}
-                            />
-                        </div>
-
-                        <div className="stats-form-container">
-                            <span>Price</span>
-                            <input className="input-stats" 
-                                type="number" 
-                                placeholder="Price" 
-                                name="price"
-                                onChange={(e) => setState({...state, price:e.target.value})}
-                                />
-                        </div>
-                </form>
-                <div className="form-buttons">
-                    <button className="enter-button"style={{cursor: "pointer"}} onClick={()=> addNewPoke({state,typeOne,typeTwo,firstMove,secondMove,getStoredData,navigate})}>Add</button>
-                    <button className="enter-button" onClick={()=> navigate('/') }>Back</button>
-                </div>
-            </div>
+        <>
+        {(error === "401") ? <Error error={error}/> :
+           
+           <div className="form-container flex-center-column">
+                   <form className="form-inputs first-form" action="#">
+                           <span>Name</span>
+                           <input className="first-inputs" 
+                               type="text" 
+                               placeholder="Name" 
+                               name="name"
+                               onChange={(e) => setState({...state, name:e.target.value})}
+                               />
+                           <span>Description</span>
+                           <input className="first-inputs" 
+                               type="text" 
+                               placeholder="Descripction" 
+                               name="description"
+                               onChange={(e) => setState({...state, description:e.target.value})}
+                               />
+                               
+                           <div className="options-form-container">
+                               <div className="option-container">
+                                   <span>Types</span>
+                                   <PokeTypes
+                                       text="Type 1"
+                                       types={typeOne}
+                                       settype={setTypeOne}
+                                       />
+                                   <PokeTypes
+                                       text="Type 2"
+                                       types={typeTwo}
+                                       settype={setTypeTwo}
+                                       />
+                               </div>
+   
+                               <div className="option-container">
+                                   <span>Moves</span>
+                                   <PokeMoves
+                                       text="1st Move"
+                                       moves={firstMove}
+                                       setMoves={setFirstMove}/>
+                                   <PokeMoves
+                                       text="2nd Move"
+                                       moves={secondMove}
+                                       setMoves={setSecondMove}/>
+                               </div>
+                           </div>
+   
+                       <div className="stats-form-container">
+                           <span>Add Image</span>
+                           <div className="add-pokemon-image"><img src={state.pokeurl} style={{height:"200px",weight:"200px"}}/></div>
+                           <input className="input-stats url-input" 
+                                   type="text" 
+                                   placeholder="URL"
+                                   name="url-image"
+                                   onChange={(e) => setState({...state, pokeurl:e.target.value})}
+                                   />
+                       </div>
+                       </form>
+   
+                   <form className="form-inputs stats-form" action="">
+                           <div className="stats-form-container">
+                               <span>Number</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="id"
+                                   name="id"
+                                   onChange={(e) => setState({...state, id:e.target.value})}
+                                   />
+                           </div>
+   
+                           <div className="stats-form-container">
+                               <span>Weight</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="Weight" 
+                                   name="weight"
+                                   onChange={(e) => setState({...state, weight:e.target.value})}
+                                   />
+                               </div>
+   
+                           <div className="stats-form-container">
+                               <span>Height</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="Height" 
+                                   name="height"
+                                   onChange={(e) => setState({...state, height:e.target.value})}
+                                   />
+                           </div>
+   
+                           <div className="stats-form-container">
+                               <span>HP</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="HP" 
+                                   name="hp"
+                                   min={0}
+                                   max={200}
+                                   onChange={(e) => setState({...state, hp:e.target.value})}
+                                   />
+                           </div>
+   
+                           <div className="stats-form-container">
+                               <span>ATK</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="ATK" 
+                                   name="atk"
+                                   min={0}
+                                   max={200}
+                                   onChange={(e) => setState({...state, atk:e.target.value})}
+                                   />
+                           </div>
+   
+                           <div className="stats-form-container">
+                               <span>DEF</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="DEF" 
+                                   name="def"
+                                   min={0}
+                                   max={200}
+                                   onChange={(e) => setState({...state, def:e.target.value})}
+                                   />
+                           </div>
+   
+                           <div className="stats-form-container">                    
+                               <span>SATK</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="SATK" 
+                                   name="satk"
+                                   min={0}
+                                   max={200}
+                                   onChange={(e) => setState({...state, satk:e.target.value})}
+                                   />
+                           </div>
+   
+                           <div className="stats-form-container">
+                               <span>SDEF</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="SDEF" 
+                                   name="sdef"
+                                   min={0}
+                                   max={200}
+                                   onChange={(e) => setState({...state, sdef:e.target.value})}
+                                   />
+                           </div>
+   
+                           <div className="stats-form-container">
+                           <span>SPD</span>
+                           <input className="input-stats" 
+                               type="number" 
+                               placeholder="SPD" 
+                               name="spd"
+                               min={0}
+                               max={200}
+                               onChange={(e) => setState({...state, spd:e.target.value})}
+                               />
+                           </div>
+   
+                           <div className="stats-form-container">
+                               <span>Price</span>
+                               <input className="input-stats" 
+                                   type="number" 
+                                   placeholder="Price" 
+                                   name="price"
+                                   onChange={(e) => setState({...state, price:e.target.value})}
+                                   />
+                           </div>
+                   </form>
+                   <div className="form-buttons">
+                       <button className="enter-button"style={{cursor: "pointer"}} onClick={()=> addNewPoke({state,typeOne,typeTwo,firstMove,secondMove, getStoredData, navigate})}>Add</button>
+                       <button className="enter-button" onClick={()=> navigate('/') }>Back</button>
+                   </div>
+               </div>
+           }
+       </>
     )
 }
 
