@@ -134,7 +134,7 @@ const CardInformation = ({getStoredData}) =>{
                     <div className='description-box'>
                             <p className='description'>{state.pokemon.description}</p>
                     </div>
-                        <span className={`${state.pokemon.idtype_types[0].type.toLowerCase()}-color-txt`}>Base Stats</span>
+                        <span className={`${state.pokemon.idtype_types[0].type.toLowerCase()}-color-txt base-stats-title`}>Base Stats</span>
                             <div className='base-stats-container'>
                                 <div className='stat-box-left'>
                                     <div className={`${state.pokemon.idtype_types[0].type.toLowerCase()}-color-txt stat-composition`}>
@@ -181,12 +181,12 @@ const CardInformation = ({getStoredData}) =>{
                                         <div style={{width:`${(state.pokemon.spd*100)/200}%`}} className={`${state.pokemon.idtype_types[0].type.toLowerCase()} inner-bar`}></div>
                                     </div>
                                 </div>
-                                <>
-                                {getStoredData("userToken") ? 
-                                <button>Catch</button>: <></>}
-                                </>
                             </div>
                     </div>
+                        <>
+                            {getStoredData("userToken") ? 
+                            <button className="catch-button">Catch</button>: <></>}
+                        </>
                 </div>
             </div>
     }

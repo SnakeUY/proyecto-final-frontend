@@ -1,20 +1,21 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getTypes } from "../../Services/backend-connection";
+import { getUniqueTypes } from "../../Services/backend-connection";
 const PokeTypes = ({text,typos,settype}) =>{
     
     const [pokeTypes, setPokeTypes] = useState([])
 
+    
     useEffect(()=>{
-    async function fetchData(){
-        getTypes(types => {
-            setPokeTypes(types)
-            console.log(types)
+      
+        async function fetchData() {
+            await getUniqueTypes(types => {
+                setPokeTypes(types)
             })
-            console.log(pokeTypes)
         }
-    fetchData()
+        fetchData()
     },[])
+
     
 
     return(

@@ -34,12 +34,18 @@ export const getTypes = (onSuccess,onFinish) =>
     .then(onSuccess)
     .finally(onFinish);
 
-    export const getMoves = (onSuccess,onFinish) =>
+export const getMoves = (onSuccess,onFinish) =>
     fetch(`${url}moves`)
     .then(response => response.json())
     .then(onSuccess)
     .finally(onFinish);
-    
+
+export const getUniqueTypes = (onSuccess,onFinish) =>
+    fetch(`${url}types/unique`)
+    .then(response => response.json())
+    .then(onSuccess)
+    .finally(onFinish);
+
 export const addPokemon = async (newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,moveTwoArr) => {
       const requestOptions = {
         method: "POST",
