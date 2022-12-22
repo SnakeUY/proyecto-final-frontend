@@ -46,6 +46,22 @@ export const addPokemon = async (newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,
           console.log("Ha ocurrido un error.");
         })
     }
+
+    export const addMoney = async (email,money,token) => {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "auth-token": token},
+        body: JSON.stringify({email: email, money: money}),
+      };
+      fetch("http://localhost:8000/users/add-money", requestOptions)
+        .then((data) => {
+          console.log(data)
+        })
+        .catch(function (err) {
+          console.log("Ha ocurrido un error.");
+        })
+    }
+  
 export const insertMove = async (move,token) => {
       const requestOptions = {
         method: "POST",
