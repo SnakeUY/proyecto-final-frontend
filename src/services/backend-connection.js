@@ -6,13 +6,27 @@ export const getPokemons = (onSuccess,onFinish) =>
     .then(onSuccess)
     .finally(onFinish);
 
-export const getPokemonById = (id) =>{
+export const getPokemonById = (id,token) =>{
   return fetch(`${url}pokemons/${id}`)
     .then(response => response.json())
     //.then(onSuccess)
     //.finally(onFinish);
     
 }
+
+export const getMyPokemons = (email,token,onSuccess,onFinish) => {
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "auth-token": token},
+    body: JSON.stringify({email: email}),
+  };
+  
+    fetch(`${url}users/pokedex/`,requestOptions)
+    .then(response => response.json())
+    .then(onSuccess)
+    .finally(onFinish);
+  }
+
 
 export const getTypes = (onSuccess,onFinish) =>
     fetch(`${url}types`)

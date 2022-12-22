@@ -9,7 +9,7 @@ import PokemonGrid from './App/Pokemon-grid/Pokemongrid';
 function App() {
 
   const [isLog, setIsLog] = useState(false)
-  
+  const [myPokes, setMyPokes] = useState(false)
   const getStoredData = (data) => {
     return localStorage.getItem(data)
   }
@@ -22,23 +22,22 @@ function App() {
     localStorage.setItem("money", money)
     return isLog
   }
+
   const logout = async () => {
     setIsLog(false)
     localStorage.removeItem("userToken") 
     localStorage.removeItem("email") 
+    localStorage.removeItem("name")
     localStorage.removeItem("money") 
     return isLog
   }
-
-  // Al final no lo use
-  
   
   return(
     <BrowserRouter>
         <div className="App">
           <Routes>
-            <Route path='/' element={<PokemonGrid getStoredData={getStoredData} logout={logout} login={login} isLog={isLog}  />} />
-            <Route path='/:id' element={<CardInformation getStoredData={getStoredData}/>} />
+            <Route path='/' element={<PokemonGrid setIsLog={setIsLog} getStoredData={getStoredData} logout={logout} login={login} isLog={isLog} myPokes={myPokes} setMyPokes={setMyPokes}  />} />
+            <Route path='/:id' element={<CardInformation getStoredData={getStoredData} myPokes={myPokes} />} />
             <Route path='/login' element={<Login login={login} isLog={isLog} />} />
             <Route path='/addpokemon' element={<NewPokemonForm getStoredData={getStoredData} />} />
           </Routes>

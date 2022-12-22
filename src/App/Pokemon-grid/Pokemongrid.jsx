@@ -1,24 +1,36 @@
 import React from "react";
-import {useEffect, useState} from 'react'
+import {useEffect, useState } from 'react'
 import Nav from '../Pokemon-Search/Nav';
 import PokemonList from '../List/PokemonList';
-import { getPokemons } from "../../Services/backend-connection";
+import { getMyPokemons, getPokemons } from "../../Services/backend-connection";
+import { useNavigate } from "react-router-dom"
 
-function PokemonGrid ({logout, login, isLog , getStoredData}){
+function PokemonGrid ({logout, login, isLog, setIsLog , getStoredData}){
  
     const [pokemonList,setPokemonList] = useState ([])
+    const [myPokemonsList, setMyPokemonsList] = useState([])
     const [pokemonOrder,setPokemonOrder] = useState ("#")
     const [pokemonSearch, setPokemonSearch] = useState ("")
+    const navigate = useNavigate()
    
     useEffect(()=>{
-  
       async function fetchData(){
         getPokemons(pokemon=>{
           setPokemonList(pokemon.sort((a, b) => a.id - b.id))
         })
-        getStoredData("userToken")
+        if(getStoredData("userToken")){
+        const token = getStoredData("userToken")
+        const email = getStoredData("email")
+        getMyPokemons(email,token,pokemon=>{
+          let aux = pokemon
+          console.log(aux[0])
+          setMyPokemonsList(aux[0].pokedex)
+          console.log(myPokemonsList)
+        },{})
       }
+    }
       fetchData()
+      console.log(myPokemonsList)
     },[])
   
     const changeOrder = () =>{
@@ -37,8 +49,6 @@ function PokemonGrid ({logout, login, isLog , getStoredData}){
         setPokemonOrder("#")
       }
     }
-  
-  
     return (
       <>
           <div className='app-navbar'>
