@@ -100,9 +100,10 @@ body{
 
 .first-form{
   width: 40vw;
-  height: 46vh;
+  height: 52vh;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .first-inputs{
@@ -139,7 +140,7 @@ body{
 
 .stats-form{
   width: 40vw;
-  height: 26vh;
+  height: 30vh;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -159,6 +160,11 @@ body{
   justify-content: center;
   border-radius: 1rem;
   border: 1px solid black;
+}
+
+.new-pokemon-image{
+  width: 12vw;
+  height: 25vh;
 }
 
 .new-pokemon-image-url{
@@ -1271,6 +1277,12 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
 .url-input{
   width: 37vw;
   height: 12vh;
+}
+
+.new-pokemon-image {
+  width: 25vw;
+  height: 16vh;
+  border: none;
 }
 
 .stats-form{
