@@ -10,6 +10,7 @@ function App() {
 
   const [isLog, setIsLog] = useState(false)
   const [myPokes, setMyPokes] = useState(false)
+  const [showFavorite, setShowFavorite] = useState(false)
   const getStoredData = (data) => {
     return localStorage.getItem(data)
   }
@@ -36,8 +37,8 @@ function App() {
     <BrowserRouter>
         <div className="App">
           <Routes>
-            <Route path='/' element={<PokemonGrid setIsLog={setIsLog} getStoredData={getStoredData} logout={logout} login={login} isLog={isLog} myPokes={myPokes} setMyPokes={setMyPokes}  />} />
-            <Route path='/:id' element={<CardInformation getStoredData={getStoredData} myPokes={myPokes} />} />
+            <Route path='/' element={<PokemonGrid setIsLog={setIsLog} getStoredData={getStoredData} logout={logout} login={login} isLog={isLog} myPokes={myPokes} setMyPokes={setMyPokes} showFavorite={showFavorite} setShowFavorite={setShowFavorite}/>} />
+            <Route path='/:id' element={<CardInformation getStoredData={getStoredData} />} />
             <Route path='/login' element={<Login login={login} isLog={isLog} />} />
             <Route path='/addpokemon' element={<NewPokemonForm getStoredData={getStoredData} />} />
           </Routes>

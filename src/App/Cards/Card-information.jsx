@@ -12,8 +12,10 @@ const CardInformation = ({getStoredData}) =>{
     const id = useParams().id
     const [pokemon,setPokemon] = useState([])
 
+
     async function fetchData(){
-        await getPokemons(pokemon=>{
+        await getPokemons()
+        .then((pokemon)=>{
           setPokemon(pokemon.sort((a, b) => a.id - b.id))
         })
       }
@@ -23,8 +25,10 @@ const CardInformation = ({getStoredData}) =>{
       },[])
 
     useEffect(()=>{
+        console.log(pokemon)
         let aux = pokemon.find((candidate)=>candidate.id ==id)
         if(aux){
+            console.log("Si esta cargado")
             setState({pokemon: aux,isLoading:false})
         }else if(pokemon.length > 0){
                 setState({isLoading:false})

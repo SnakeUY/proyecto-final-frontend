@@ -1,10 +1,10 @@
 const url = "http://localhost:8000/";
 
-export const getPokemons = (onSuccess,onFinish) =>
-    fetch(`${url}pokemons`)
-    .then(response => response.json())
-    .then(onSuccess)
-    .finally(onFinish);
+export const getPokemons = () =>{
+    return fetch(`${url}pokemons`)
+    .then(response => response.json())}
+    //.then(onSuccess)
+    //.finally(onFinish);
 
 export const getPokemonById = (id,token) =>{
   return fetch(`${url}pokemons/${id}`)
@@ -14,17 +14,17 @@ export const getPokemonById = (id,token) =>{
     
 }
 
-export const getMyPokemons = (email,token,onSuccess,onFinish) => {
+export const getMyPokemons = (email,token) => {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json", "auth-token": token},
     body: JSON.stringify({email: email}),
   };
   
-    fetch(`${url}users/pokedex/`,requestOptions)
+    return fetch(`${url}users/pokedex/`,requestOptions)
     .then(response => response.json())
-    .then(onSuccess)
-    .finally(onFinish);
+    //.then(onSuccess)
+    //.finally(onFinish);
   }
 
 
