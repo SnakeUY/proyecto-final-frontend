@@ -15,7 +15,7 @@ const PokemonList = ({list, getStoredData,myPokemonsList, showFavorite, setShowF
                         {
                             list.map((pokemon)=>{
                                 if(myPokemonsList){
-                                    let isFav = (showFavorite)? myPokemonsList.includes(pokemon.id) : !myPokemonsList.includes(pokemon.id)
+                                    let isFav = (!showFavorite)? myPokemonsList.includes(pokemon.id) : !myPokemonsList.includes(pokemon.id)
                                     
                                     if(isFav === true) return
                                 }
