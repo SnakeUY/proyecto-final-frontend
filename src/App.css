@@ -1116,13 +1116,13 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
     font-size: 20px
   }
   .logo {
-    width: 5vw;
-    height: 5vh;
+    width: 6vw;
+    height: 3vh;
   }
   
 
  .box {
-  width: 35vw;
+  width: 37vw;
   height: 16vh;
 }
 
@@ -1149,6 +1149,7 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
   justify-content: flex-start;
   width: 80vw;
   height: 80vh;
+  margin-left: 0%;
   gap: 2vh;
   overflow: scroll;
  }
@@ -1163,17 +1164,28 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
   height: 100%;
  }
 
- .arrow-back {
-  height: 15%;
+ .pokemon-logo-login {
+  width: 50vw;
+  height: 10vh;
+}
+
+.div-arrow-back {
   position: fixed;
-  top: 3%;
-  left: 35%;
+  left: 40vw;
+  top: 10vh;
+}
+
+ .arrow-back {
+  height: 10vh;
+  width: 10vh;
  }
+
+ .enter-button {
+  width: 15vh;
+}
 
  .background-login {
   background-size:cover;
-  background-position-x: 50%;
-  background-position-y: 70%;
  }
 
 
@@ -1291,6 +1303,7 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
 
 .pokemon-image-container{
   width: 100%;
+  top: 8%;
 }
 
 .big-card-pokeimage{
