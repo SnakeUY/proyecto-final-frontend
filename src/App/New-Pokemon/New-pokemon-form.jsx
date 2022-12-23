@@ -34,7 +34,7 @@ const NewPokemonForm = ({getStoredData}) =>{
       const sendToken = async () => {
 
             const token = getStoredData("userToken")
-            console.log(token)
+          
             const settings = { 
             method: 'POST', 
             headers: { 
@@ -44,7 +44,7 @@ const NewPokemonForm = ({getStoredData}) =>{
         
             try {
                 const fetchResponse = await fetch(`http://localhost:8000/users/validate-token`, settings);
-                console.log(fetchResponse)
+            
                 if(fetchResponse.ok === false){
                     setError("401")
                 }
@@ -258,7 +258,7 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredD
             await getPokemonById(state.id)
             .then((pokemon) =>
                 {
-                    console.log(pokemon)
+                 
                 if(pokemon.length > 0){
                 if(pokemon[0].id == state.id){
                     exist = true
@@ -267,7 +267,7 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredD
         }
 
             )
-            console.log(exist)
+          
 
         if(exist === false) {
 
@@ -312,10 +312,9 @@ const addNewPoke = async ({state,typeOne,typeTwo,firstMove,secondMove,getStoredD
       };
       const fetchResponse = await fetch("http://localhost:8000/users/get-money", requestOptions)
       const responseData = await fetchResponse.json()
-      console.log(responseData.money)
+  
       const money = parseInt(responseData.money) + 50
-      console.log(money)
-
+   
       await addMoney(email,money,token)
       localStorage.removeItem("money")
       localStorage.setItem("money", money)

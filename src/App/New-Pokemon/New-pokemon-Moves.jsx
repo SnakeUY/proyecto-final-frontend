@@ -10,7 +10,7 @@ const PokeMoves = ({text,moves,setMoves}) =>{
         getMoves(moves => {
             setPokeMoves(moves)
             })
-            console.log(pokeMoves)
+          
         }
     fetchData()
     },[])

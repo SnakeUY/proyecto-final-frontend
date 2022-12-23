@@ -27,6 +27,7 @@ const PokemonList = ({list, getStoredData,myPokemonsList, showFavorite, setShowF
                                     pokemon={`${pokemon.pokeurl}`}
                                     title={`${pokemonTypeOne.toLowerCase()} name-box`}
                                     name={`${pokemon.name}`}
+                                    price={`${pokemon.price}`}
                                     />
                                 )
                             })
