@@ -226,7 +226,7 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
                     {(isFav === true)? "":
                         <>
                             {getStoredData("userToken") ? 
-                            <button className="catch-button" onClick={()=> catchPoke(state.pokemon.id, state.pokemon.price,getStoredData,navigate)}>Catch</button>: <></>}
+                            <button className="catch-button" onClick={()=> catchPoke(state.pokemon.id, state.pokemon.price,getStoredData,navigate)}><b>Catch by {parseInt(state.pokemon.price)} $ </b></button>: <></>}
                         </>
                         }
                 </div>
