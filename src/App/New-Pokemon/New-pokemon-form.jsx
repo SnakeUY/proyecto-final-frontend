@@ -22,7 +22,7 @@ const NewPokemonForm = ({getStoredData}) =>{
         satk:[],
         sdef:[],
         spd:[],
-        pokeurl:[],
+        pokeurl:'',
       })
 
       const [typeOne, setTypeOne] = useState({})

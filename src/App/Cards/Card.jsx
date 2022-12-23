@@ -10,7 +10,7 @@ const Card = (props) =>{
             <div>
                 <div className={props.type}>
                     <div className="number-flex">
-                        <span className="price-span">{parseInt(props.price)}$</span>
+                        <span className="user-message-money number-span" style={{color:'black'}}>${parseInt(props.price)}</span>
                         <span className="number-span">#{getZeroes(props.number)}</span>
                     </div>
                 <img className="mini" src={props.pokemon} alt="" />

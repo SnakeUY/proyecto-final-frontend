@@ -287,7 +287,7 @@ align-items: center;
  }
 
 .user-message-money{
-  font-size: 1vw;
+  font-size: 1.5vh;
   margin-right: 1vw;
   padding: 2%;
   text-align: center;
@@ -359,10 +359,6 @@ align-items: center;
 }
 
 .number-span{
-  margin: 1vh;
-}
-
-.price-span{
   margin: 1vh;
 }
 
@@ -468,10 +464,14 @@ align-items: center;
   filter: invert(100%) brightness(200%);
 }
 
-.pokemon-number{
+.pokemon-number-container{
   color: white;
   font-size: small;
   font-weight:bold;
+}
+
+.pokemon-number{
+  margin-right: 1vh;
 }
 
 .pokemon-image-container{
@@ -1068,6 +1068,11 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
 
 @media (max-width: 600px) and (min-height: 350px) {
 
+
+  .user-message-money {
+    font-size: 2vw;
+    height: 2vh;
+}
 
   .box::before{
     height: 0vh;

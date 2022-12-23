@@ -94,8 +94,9 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
                     </Link>
                         <span>{state.pokemon.name}</span>
                     </div>
-                    <div className='pokemon-number'>
-                        <span>#{getZeroes(state.pokemon.id)}</span>
+                    <div className='pokemon-number-container'>
+                        <span className="pokemon-number">${parseInt(state.pokemon.price)}</span>
+                        <span className="pokemon-number">#{getZeroes(state.pokemon.id)}</span>
                     </div>
                 </div>
                 
@@ -141,7 +142,7 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
                         <div className='body-stat'>
                             <div className='measure-box'>
                                 <img src="./Imagenes/Weight.svg" alt="" />
-                                <span className='measure'>{state.pokemon.weight}</span>
+                                <span className='measure'>{state.pokemon.weight} Kg</span>
                             </div>
                             <span className='span-stat'>Weight</span>
                         </div>
@@ -149,7 +150,7 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
                         <div className='body-stat middle-stat'>
                             <div className='measure-box'>
                                 <img src="./Imagenes/Height.svg" alt="" />
-                                <span className='measure'>{state.pokemon.height}</span>
+                                <span className='measure'>{state.pokemon.height} m</span>
                             </div>
                             <span className='span-stat'>Height</span>
                         </div>
