@@ -348,14 +348,15 @@ align-items: center;
 
 .number-flex{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
 }
 
 .number-span{
-  display: flex;
-  align-self: flex-start;
-  justify-self: flex-end;
+  margin: 1vh;
+}
+
+.price-span{
   margin: 1vh;
 }
 

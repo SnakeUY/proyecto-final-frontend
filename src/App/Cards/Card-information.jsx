@@ -257,7 +257,8 @@ const catchPoke = async (id, price, getStoredData,navigate) => {
 
       console.log("Pokemon comprado",id)
         await buyPoke(id,email,token)
-
+        alert("Pokemon comprado =)")
+        navigate('/')
       }else {
         alert("No puedes permitirte este pokemon =(")
       }
