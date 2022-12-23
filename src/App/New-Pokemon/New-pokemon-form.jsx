@@ -61,14 +61,14 @@ const NewPokemonForm = ({getStoredData}) =>{
            
            <div className="form-container flex-center-column">
                    <form className="form-inputs first-form" action="#">
-                           <span>Name</span>
+                           <span className="title-stat-forms">Name</span>
                            <input className="first-inputs" 
                                type="text" 
                                placeholder="Name" 
                                name="name"
                                onChange={(e) => setState({...state, name:e.target.value})}
                                />
-                           <span>Description</span>
+                           <span className="title-stat-forms">Description</span>
                            <input className="first-inputs" 
                                type="text" 
                                placeholder="Descripction" 
@@ -78,7 +78,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                                
                            <div className="options-form-container">
                                <div className="option-container">
-                                   <span>Types</span>
+                                   <span className="title-stat-forms">Types</span>
                                    <PokeTypes
                                        text="Type 1"
                                        types={typeOne}
@@ -92,7 +92,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                                </div>
    
                                <div className="option-container">
-                                   <span>Moves</span>
+                                   <span className="title-stat-forms">Moves</span>
                                    <PokeMoves
                                        text="1st Move"
                                        moves={firstMove}
@@ -105,7 +105,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                            </div>
    
                        <div className="stats-form-container">
-                           <span>Add Image</span>
+                           <span className="title-stat-forms">Add Image</span>
                            <div className="add-pokemon-image"><img src={state.pokeurl} style={{height:"200px",weight:"200px"}}/></div>
                            <input className="input-stats url-input" 
                                    type="text" 
@@ -118,7 +118,7 @@ const NewPokemonForm = ({getStoredData}) =>{
    
                    <form className="form-inputs stats-form" action="">
                            <div className="stats-form-container">
-                               <span>Number</span>
+                               <span className="title-stat-forms">Number</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="id"
@@ -128,7 +128,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                            </div>
    
                            <div className="stats-form-container">
-                               <span>Weight</span>
+                               <span className="title-stat-forms">Weight</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="Weight" 
@@ -138,7 +138,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                                </div>
    
                            <div className="stats-form-container">
-                               <span>Height</span>
+                               <span className="title-stat-forms">Height</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="Height" 
@@ -148,7 +148,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                            </div>
    
                            <div className="stats-form-container">
-                               <span>HP</span>
+                               <span className="title-stat-forms">HP</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="HP" 
@@ -160,7 +160,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                            </div>
    
                            <div className="stats-form-container">
-                               <span>ATK</span>
+                               <span className="title-stat-forms">ATK</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="ATK" 
@@ -172,7 +172,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                            </div>
    
                            <div className="stats-form-container">
-                               <span>DEF</span>
+                               <span className="title-stat-forms">DEF</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="DEF" 
@@ -184,7 +184,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                            </div>
    
                            <div className="stats-form-container">                    
-                               <span>SATK</span>
+                               <span className="title-stat-forms">SATK</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="SATK" 
@@ -196,7 +196,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                            </div>
    
                            <div className="stats-form-container">
-                               <span>SDEF</span>
+                               <span className="title-stat-forms">SDEF</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="SDEF" 
@@ -208,19 +208,19 @@ const NewPokemonForm = ({getStoredData}) =>{
                            </div>
    
                            <div className="stats-form-container">
-                           <span>SPD</span>
-                           <input className="input-stats" 
-                               type="number" 
-                               placeholder="SPD" 
-                               name="spd"
-                               min={0}
-                               max={200}
-                               onChange={(e) => setState({...state, spd:e.target.value})}
-                               />
+                                <span className="title-stat-forms">SPD</span>
+                                <input className="input-stats" 
+                                    type="number" 
+                                    placeholder="SPD" 
+                                    name="spd"
+                                    min={0}
+                                    max={200}
+                                    onChange={(e) => setState({...state, spd:e.target.value})}
+                                    />
                            </div>
    
                            <div className="stats-form-container">
-                               <span>Price</span>
+                               <span className="title-stat-forms">Price</span>
                                <input className="input-stats" 
                                    type="number" 
                                    placeholder="Price" 

@@ -1176,6 +1176,109 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
   background-position-y: 70%;
  }
 
+
+/*form*/
+
+.form-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+}
+
+.title-stat-forms{
+  font-size: 3vw;
+}
+
+.form-inputs{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.first-form{
+  width: 80vw;
+  height: 45vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 2vw;
+}
+
+.first-inputs{
+  width: 35vw;
+  height: 5vh;
+  margin: 2vh 0vh;
+  border-radius: 0.5rem;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 3vw;
+  border: 1px solid gray;
+}
+
+.stats-form-container{
+  display: flex;
+  flex-direction: column;
+  margin-left: 2vw;
+}
+
+.input-stats{
+  width: 10vw;
+  height: 5vh;
+  margin: 2vh 0vh;
+  border-radius: 0.5rem;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 3vw;
+  border: 1px solid gray;
+}
+
+.url-input{
+  width: 37vw;
+  height: 12vh;
+}
+
+.stats-form{
+  width: 80vw;
+  height: 28vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.form-buttons{
+  display: flex;
+  flex-direction: row;
+}
+
+.add-pokemon-image{
+  width: 40vw;
+  height: 22vh;
+  margin-top: 2%;
+}
+
+/*OPTION FORM*/
+.options-form-container{
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+
+.option-inputs{
+  width: 18vw;
+  height: 5vh;
+  border-radius: 0.5rem;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 2vw;
+  margin-bottom: 10%;
+  margin-top: 10%;
+}
+
  /* big-card-container */ 
  .big-card-container {
   width: 90%;
@@ -1255,6 +1358,7 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
  }
 
 }
+
 
 /* TENER EN CUENTA MEDIDAS ALTURAS MAYORES A 700 PX*/
 @media (max-width: 600px) and (min-height: 750px) { 
