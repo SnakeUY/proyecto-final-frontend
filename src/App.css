@@ -742,7 +742,7 @@ flex-direction: column;
 
 .grass{
   background: rgb(59,161,8);
-  background: linear-gradient(90deg, rgba(59,161,8,1) 0%, rgba(116,203,72,1) 82%);
+  background: linear-gradient(90deg, rgb(9, 150, 16) 0%, rgba(116,203,72,1) 82%);
 }
 
 .grass-border{
@@ -759,7 +759,7 @@ flex-direction: column;
 
 .fire{
 background: rgb(223,82,47);
-background: linear-gradient(90deg, rgba(223,82,47,1) 0%, rgba(245,125,49,1) 68%);
+background: linear-gradient(90deg, rgb(223, 73, 47) 0%, rgba(245,125,49,1) 68%);
 }
 
 .fire-border{
@@ -793,7 +793,7 @@ background: linear-gradient(90deg, rgba(223,82,47,1) 0%, rgba(245,125,49,1) 68%)
 
 .steel{
   background: rgb(124,128,170);
-  background: linear-gradient(90deg, rgba(124,128,170,1) 0%, rgba(183,185,208,1) 82%);
+  background: linear-gradient(90deg, rgb(114, 118, 160) 0%, rgba(183,185,208,1) 82%);
 }
 
 .steel-border{
@@ -827,7 +827,7 @@ background: linear-gradient(90deg, rgba(223,82,47,1) 0%, rgba(245,125,49,1) 68%)
 
 .ghost{
   background: rgb(73,26,149);
-  background: linear-gradient(90deg, rgba(73,26,149,1) 0%, rgba(112,85,155,1) 82%);
+  background: linear-gradient(90deg, rgb(60, 18, 128) 0%, rgba(112,85,155,1) 82%);
 }
 
 .ghost-border{
@@ -861,7 +861,7 @@ background: linear-gradient(90deg, rgba(221,61,107,1) 0%, rgba(251,85,132,1) 68%
 
 .bug{
   background: rgb(143,159,11);
-  background: linear-gradient(90deg, rgba(143,159,11,1) 0%, rgba(167,183,35,1) 82%);
+  background: linear-gradient(90deg, rgb(116, 128, 11) 0%, rgba(167,183,35,1) 82%);
 }
 
 .bug-border{
@@ -878,7 +878,7 @@ background: linear-gradient(90deg, rgba(221,61,107,1) 0%, rgba(251,85,132,1) 68%
 
 .electric{
   background: rgb(251,170,64);
-  background: linear-gradient(90deg, rgba(251,170,64,1) 0%, rgba(249,207,48,1) 87%);
+  background: linear-gradient(90deg, rgb(241, 158, 50) 0%, rgba(249,207,48,1) 87%);
 }
 
 .electric-border{
@@ -895,7 +895,7 @@ background: linear-gradient(90deg, rgba(221,61,107,1) 0%, rgba(251,85,132,1) 68%
 
 .poison{
   background: rgb(113,8,107);
-  background: linear-gradient(90deg, rgba(113,8,107,1) 0%, rgba(164,62,158,1) 82%);
+  background: linear-gradient(90deg, rgb(99, 12, 94) 0%, rgba(164,62,158,1) 82%);
 }
 
 .poison-border{
@@ -912,7 +912,7 @@ background: linear-gradient(90deg, rgba(221,61,107,1) 0%, rgba(251,85,132,1) 68%
 
 .flying{
 background: rgb(135,99,214);
-background: linear-gradient(90deg, rgba(135,99,214,1) 0%, rgba(168,145,236,1) 68%);
+background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%);
 }
 
 .flying-border{
