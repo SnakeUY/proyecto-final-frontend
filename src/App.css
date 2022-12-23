@@ -1058,6 +1058,20 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
 @media (max-width: 600px) and (min-height: 350px) {
 
 
+  .box::before{
+    height: 0vh;
+    content: '';
+    position: absolute;
+    background: none;
+    inset: 0;
+    filter: blur(0px);
+  }
+  
+  .box:hover::before{
+    opacity: 0;
+  }
+
+
   .user-message-money{
     font-size: 2vw;
   }
