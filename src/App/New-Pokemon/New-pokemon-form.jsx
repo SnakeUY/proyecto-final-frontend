@@ -106,7 +106,8 @@ const NewPokemonForm = ({getStoredData}) =>{
    
                        <div className="stats-form-container">
                            <span className="title-stat-forms">Add Image</span>
-                           <div className="add-pokemon-image"><img src={state.pokeurl} style={{height:"200px",weight:"200px"}}/></div>
+                           <div className="add-pokemon-image">
+                           {(!state.pokeurl =='')? <img className="new-pokemon-image" src={state.pokeurl}/>  : "" }</div>
                            <input className="input-stats url-input" 
                                    type="text" 
                                    placeholder="URL"
