@@ -1,24 +1,27 @@
 import React, {useEffect, useState} from "react";
-import { Link, useParams } from 'react-router-dom'
-import { getPokemons } from "../../Services/backend-connection";
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { addMoney, buyPoke, getMyPokemons, getPokemons } from "../../Services/backend-connection";
 import Error404 from "../Pokemon-Search/Error404";
 import Loader from "../Loader/Loader";
 import Moves from "./Moves";
 import TableType from "./Table-type";
 import { useReducer } from "react";
 
-const CardInformation = ({getStoredData}) =>{
+const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPokemonsList}) =>{
     const [state,setState] = useReducer((state,newState)=>{return{...state,...newState}},{isLoading:true})
     const id = useParams().id
     const [pokemon,setPokemon] = useState([])
-
+    const navigate = useNavigate()
+    const [isFav, setIsFav] = useState(false)
+    
 
     async function fetchData(){
         await getPokemons()
         .then((pokemon)=>{
           setPokemon(pokemon.sort((a, b) => a.id - b.id))
         })
-      }
+
+    }
 
       useEffect(()=>{
         fetchData()
@@ -35,10 +38,41 @@ const CardInformation = ({getStoredData}) =>{
             }
       },[id,pokemon])
 
+
+      const loadFavs = async () => {
+        if(getStoredData("userToken")){
+            const token = getStoredData("userToken")
+            const email = getStoredData("email")
+            let aux
+            await getMyPokemons(email,token)
+            .then((pokemon)=> {
+              aux = pokemon[0].idpokemon_pokemons
+              console.log(aux)
+              let myFavArr = []
+              aux.map((poke)=>{
+                  myFavArr.push(poke.id)
+              })
+              setMyPokemonsList(myFavArr)
+            })
+            console.log(state.pokemon.id)
+            if(myPokemonsList.includes(state.pokemon.id)){
+                setIsFav(true)
+            }
+
+        }
+      }
+      useEffect(()=>{
+        loadFavs()
+      },[state.pokemon])
     function getZeroes(number){
         return number.toString().padStart(3,'0')
     }
     let index = pokemon.indexOf(state.pokemon)
+
+
+    
+
+
 
     return( 
     <>
@@ -187,10 +221,13 @@ const CardInformation = ({getStoredData}) =>{
                                 </div>
                             </div>
                     </div>
+
+                    {(isFav === true)? "":
                         <>
                             {getStoredData("userToken") ? 
-                            <button className="catch-button">Catch</button>: <></>}
+                            <button className="catch-button" onClick={()=> catchPoke(state.pokemon.id, state.pokemon.price,getStoredData,navigate)}>Catch</button>: <></>}
                         </>
+                        }
                 </div>
             </div>
     }
@@ -198,6 +235,32 @@ const CardInformation = ({getStoredData}) =>{
     </>
     )
     
+}
+const catchPoke = async (id, price, getStoredData,navigate) => {
+    const token = getStoredData("userToken")
+    const email = getStoredData("email")
+    const credential = { email: email }
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "auth-token": token },
+        body: JSON.stringify(credential),
+      };
+      const fetchResponse = await fetch("http://localhost:8000/users/get-money", requestOptions)
+      const responseData = await fetchResponse.json()
+      const myMoney = parseInt(responseData.money)
+      if(myMoney >= price){
+      const money = myMoney - price
+      console.log(money)
+      await addMoney(email,money,token)
+      localStorage.removeItem("money")
+      localStorage.setItem("money", money)
+
+      console.log("Pokemon comprado",id)
+        await buyPoke(id,email,token)
+
+      }else {
+        alert("No puedes permitirte este pokemon =(")
+      }
 }
 
 export default CardInformation

@@ -82,6 +82,21 @@ export const addPokemon = async (newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,
         })
     }
   
+    export const buyPoke = async (id,email,token) => {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "auth-token": token},
+        body: JSON.stringify({email: email, id: id}),
+      };
+      fetch("http://localhost:8000/pokedex", requestOptions)
+        .then((data) => {
+          console.log(data)
+        })
+        .catch(function (err) {
+          console.log("Ha ocurrido un error.");
+        })
+    }
+
 export const insertMove = async (move,token) => {
       const requestOptions = {
         method: "POST",

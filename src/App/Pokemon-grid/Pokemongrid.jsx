@@ -5,11 +5,11 @@ import PokemonList from '../List/PokemonList';
 import { getMyPokemons, getPokemons } from "../../Services/backend-connection";
 import { useNavigate } from "react-router-dom"
 
-function PokemonGrid ({logout, login, isLog, setIsLog , getStoredData, showFavorite, setShowFavorite}){
+function PokemonGrid ({myPokemonsList,setMyPokemonsList,logout, login, isLog, setIsLog , getStoredData, showFavorite, setShowFavorite}){
  
     const [pokemonList,setPokemonList] = useState ([])
 
-    const [myPokemonsList, setMyPokemonsList] = useState()
+    
 
     const [pokemonOrder,setPokemonOrder] = useState ("#")
     const [pokemonSearch, setPokemonSearch] = useState ("")
