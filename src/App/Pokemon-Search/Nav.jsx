@@ -31,7 +31,7 @@ const Nav = (props) =>{
                             </button>
                         <img className="order-button-arrow" src="../Imagenes/Arrow.svg" alt="" />
                         <button className="login-logout-button" onClick={loginClick}><img className="user-image" src="../Imagenes/user.svg" alt="" /></button></>
-                        :<><p className="user-message-money"> Hola {props.getStoredData("name") } tienes {props.getStoredData("money") } $</p>
+                        :<><span className="user-message-money"> Hi! {props.getStoredData("name") } you've {props.getStoredData("money") } $</span>
                         <button className="order-button" 
                              onClick={()=>{props.changeOrder()}}>
                              {props.pokemonOrder}

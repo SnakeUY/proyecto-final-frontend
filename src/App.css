@@ -283,6 +283,10 @@ align-items: center;
 .user-message-money{
   font-size: 1vw;
   margin-right: 1vw;
+  padding: 2%;
+  text-align: center;
+  background-color: #face2f;
+  border-radius: 3rem;
 }
 
 .login-logout-button{
@@ -1136,12 +1140,12 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
   
 
  .box {
-  width: 37vw;
-  height: 16vh;
+  width: 38vw;
+  height: 17vh;
 }
 
  .mini {
-  width: 20vw;
+  width: 22vw;
   height: 12vh;
   margin-top: 3vh;
  }
@@ -1161,7 +1165,7 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
  .list-container {
   display: flex;
   justify-content: flex-start;
-  width: 80vw;
+  width: 82vw;
   height: 80vh;
   margin-left: 0%;
   gap: 2vh;

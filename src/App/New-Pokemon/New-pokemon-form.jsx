@@ -71,7 +71,7 @@ const NewPokemonForm = ({getStoredData}) =>{
                            <span className="title-stat-forms">Description</span>
                            <input className="first-inputs" 
                                type="text" 
-                               placeholder="Descripction" 
+                               placeholder="Description" 
                                name="description"
                                onChange={(e) => setState({...state, description:e.target.value})}
                                />

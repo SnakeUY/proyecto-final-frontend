@@ -7,11 +7,11 @@ const Pokedex = ({showFavorite,setShowFavorite}) =>{
         <div style={{cursor: "pointer"}} onClick={()=> (showFavorite)? setShowFavorite(false) : setShowFavorite(true)}>
             <div className="new-pokemon-border box">
                 <span/>
-                {(!showFavorite)? <img className="mini" src="./Imagenes/pokeball-red.png" alt="" />  : <img className="mini" src="./Imagenes/pokeball.png" alt="" /> }  
+                {(!showFavorite)? <img className="mini" src="./Imagenes/pokeball-red.png" alt="" />  : <img className="mini" src="./Imagenes/pokeball-red-opened.png" alt="" /> }  
             </div>
 
             <div className='new-pokemon name-box'>
-                    <span className="span-pokemonlist-name">{(!showFavorite)? "Abrir" : "Cerrar"}</span>
+                    <span className="span-pokemonlist-name">{(!showFavorite)? "My Pokedex" : "Back"}</span>
                 </div>
             </div>
     )
