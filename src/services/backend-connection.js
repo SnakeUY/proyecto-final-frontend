@@ -54,7 +54,6 @@ export const addPokemon = async (newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,
       };
       fetch("http://localhost:8000/pokemons/create", requestOptions)
         .then((data) => {
-          console.log(data)
           if(data){
             insertType(tpyeOneArr,token)
             insertType(tpyeTwoArr,token)
@@ -63,7 +62,7 @@ export const addPokemon = async (newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,
           }
         })
         .catch(function (err) {
-          console.log("Ha ocurrido un error.");
+          alert("Ha ocurrido un error.");
         })
     }
 
@@ -75,10 +74,10 @@ export const addPokemon = async (newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,
       };
       fetch("http://localhost:8000/users/add-money", requestOptions)
         .then((data) => {
-          console.log(data)
+      
         })
         .catch(function (err) {
-          console.log("Ha ocurrido un error.");
+          alert("Ha ocurrido un error.");
         })
     }
   
@@ -90,10 +89,10 @@ export const addPokemon = async (newPoke,token,tpyeOneArr,tpyeTwoArr,moveOneArr,
       };
       fetch("http://localhost:8000/pokedex", requestOptions)
         .then((data) => {
-          console.log(data)
+          return data
         })
         .catch(function (err) {
-          console.log("Ha ocurrido un error.");
+          alert("Ha ocurrido un error.");
         })
     }
 
@@ -105,14 +104,14 @@ export const insertMove = async (move,token) => {
       };
       fetch("http://localhost:8000/moves/insert", requestOptions)
         .then(() => {
-          console.log()
+   
         })
         .catch(function (err) {
-          console.log("Ha ocurrido un error.");
+          alert("Ha ocurrido un error.");
         })
     }
 export const insertType = async (type,token) => {
-  console.log(type)
+
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json", "auth-token": token},
@@ -120,9 +119,9 @@ export const insertType = async (type,token) => {
       };
       fetch("http://localhost:8000/types/insert", requestOptions)
         .then((data) => {
-          console.log(data)
+          return data
         })
         .catch(function (err) {
-          console.log("Ha ocurrido un error.");
+          alert("Ha ocurrido un error.");
         })
     }
