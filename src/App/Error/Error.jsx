@@ -1,7 +1,7 @@
 import React from "react";
 
 const Error = ({error}) => {
-    console.log(error)
+  
     return(
         <div className="flex-center-column error-container">
             <div className="flex-center-column image-error-container">

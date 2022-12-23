@@ -29,7 +29,7 @@ function PokemonGrid ({myPokemonsList,setMyPokemonsList,logout, login, isLog, se
       await getMyPokemons(email,token)
       .then((pokemon)=> {
         aux = pokemon[0].idpokemon_pokemons
-        console.log(aux)
+        
         let myFavArr = []
         aux.map((poke)=>{
             myFavArr.push(poke.id)

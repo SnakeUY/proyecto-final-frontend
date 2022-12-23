@@ -28,10 +28,10 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
       },[])
 
     useEffect(()=>{
-        console.log(pokemon)
+      
         let aux = pokemon.find((candidate)=>candidate.id ==id)
         if(aux){
-            console.log("Si esta cargado")
+            
             setState({pokemon: aux,isLoading:false})
         }else if(pokemon.length > 0){
                 setState({isLoading:false})
@@ -47,14 +47,14 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
             await getMyPokemons(email,token)
             .then((pokemon)=> {
               aux = pokemon[0].idpokemon_pokemons
-              console.log(aux)
+            
               let myFavArr = []
               aux.map((poke)=>{
                   myFavArr.push(poke.id)
               })
               setMyPokemonsList(myFavArr)
             })
-            console.log(state.pokemon.id)
+    
             if(myPokemonsList.includes(state.pokemon.id)){
                 setIsFav(true)
             }
@@ -250,12 +250,10 @@ const catchPoke = async (id, price, getStoredData,navigate) => {
       const myMoney = parseInt(responseData.money)
       if(myMoney >= price){
       const money = myMoney - price
-      console.log(money)
       await addMoney(email,money,token)
       localStorage.removeItem("money")
       localStorage.setItem("money", money)
 
-      console.log("Pokemon comprado",id)
         await buyPoke(id,email,token)
 
       }else {
