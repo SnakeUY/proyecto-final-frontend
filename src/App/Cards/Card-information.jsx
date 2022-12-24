@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { addMoney, buyPoke, getMyPokemons, getPokemons } from "../../Services/backend-connection";
+import { addMoney, buyPoke, getMyPokemons, getPokemons } from "../../services/backend-connection";
 import Error404 from "../Pokemon-Search/Error404";
 import Loader from "../Loader/Loader";
 import Moves from "./Moves";
