@@ -463,7 +463,13 @@ align-items: center;
   margin-top: 1vh;
   filter: invert(100%) brightness(200%);
 }
-
+.back-index {
+  background-color: #e9d3d3;
+  border: 1px solid rgb(226, 220, 220);
+  margin: 30px 0px;
+  padding: 10px;
+  border-radius: 5px;
+}
 .pokemon-number-container{
   color: white;
   font-size: small;

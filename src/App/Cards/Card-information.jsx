@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { addMoney, buyPoke, getMyPokemons, getPokemons } from "../../Services/backend-connection";
-import Error404 from "../Pokemon-Search/Error404";
+
 import Loader from "../Loader/Loader";
 import Moves from "./Moves";
 import TableType from "./Table-type";
@@ -70,11 +70,9 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
         return number.toString().padStart(3,'0')
     }
     let index = pokemon.indexOf(state.pokemon)
-
+    const error = "404";
 
     
-
-
 
     return( 
     <>
@@ -82,7 +80,7 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
        <Loader/> :
        <>
         {(!state.pokemon)?
-        <Error404/>:
+        <Error error={error} />:
             <div className={`${state.pokemon.idtype_types[0].type.toLowerCase()} big-card-container`}>
 
                 <div className= 'bgrn-pokeball'>
