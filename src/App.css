@@ -1071,7 +1071,7 @@ background: linear-gradient(90deg, rgb(122, 82, 209) 0%, rgba(168,145,236,1) 68%
 
   .user-message-money {
     font-size: 2vw;
-    height: 2vh;
+    height: 1.5vh;
 }
 
   .box::before{
