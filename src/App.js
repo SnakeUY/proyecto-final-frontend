@@ -12,6 +12,7 @@ function App() {
   const [myPokes, setMyPokes] = useState(false)
   const [showFavorite, setShowFavorite] = useState(false)
   const [myPokemonsList, setMyPokemonsList] = useState()
+  const [error, setError] = useState("")
   const getStoredData = (data) => {
     return localStorage.getItem(data)
   }
@@ -33,15 +34,41 @@ function App() {
     localStorage.removeItem("money") 
     return isLog
   }
+
+  const sendToken = async () => {
+
+    const token = getStoredData("userToken")
   
+    const settings = { 
+    method: 'POST', 
+    headers: { 
+        "Content-Type": "application/json", 
+        "auth-token": token },
+    };
+
+    try {
+        const fetchResponse = await fetch(`http://localhost:8000/users/validate-token`, settings);
+    
+        if(fetchResponse.ok === false){
+            setError("401")
+        }else{
+            setError("OK")
+        }
+    } catch (e) {
+        return e;
+    }
+    return
+}
+
+
   return(
     <BrowserRouter>
         <div className="App">
           <Routes>
-            <Route path='/' element={<PokemonGrid myPokemonsList={myPokemonsList} setMyPokemonsList={setMyPokemonsList} setIsLog={setIsLog} getStoredData={getStoredData} logout={logout} login={login} isLog={isLog} myPokes={myPokes} setMyPokes={setMyPokes} showFavorite={showFavorite} setShowFavorite={setShowFavorite}/>} />
+            <Route path='/' element={<PokemonGrid myPokemonsList={myPokemonsList} setMyPokemonsList={setMyPokemonsList} setIsLog={setIsLog} getStoredData={getStoredData} logout={logout} login={login} isLog={isLog} myPokes={myPokes} setMyPokes={setMyPokes} showFavorite={showFavorite} setShowFavorite={setShowFavorite} sendToken={sendToken} error={error}/>} />
             <Route path='/:id' element={<CardInformation myPokemonsList={myPokemonsList} setMyPokemonsList={setMyPokemonsList} getStoredData={getStoredData} showFavorite={showFavorite}/>} />
             <Route path='/login' element={<Login login={login} isLog={isLog} />} />
-            <Route path='/addpokemon' element={<NewPokemonForm getStoredData={getStoredData} />} />
+            <Route path='/addpokemon' element={<NewPokemonForm getStoredData={getStoredData} sendToken={sendToken} error={error} />} />
           </Routes>
         </div>
     </BrowserRouter>

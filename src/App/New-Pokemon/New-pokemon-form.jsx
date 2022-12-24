@@ -6,7 +6,7 @@ import { PokeMoves } from "./New-pokemon-Moves";
 import { addMoney, addPokemon, getPokemonById } from "../../Services/backend-connection"
 import Error from "../Error/Error";
 
-const NewPokemonForm = ({getStoredData}) =>{
+const NewPokemonForm = ({getStoredData,sendToken,error}) =>{
     const navigate = useNavigate()
 
     const [state,setState] = useState({
@@ -29,32 +29,10 @@ const NewPokemonForm = ({getStoredData}) =>{
       const [typeTwo, setTypeTwo] = useState({})
       const [firstMove, setFirstMove] = useState({})
       const [secondMove, setSecondMove] = useState({})
-      const [error, setError] = useState("")
 
-      const sendToken = async () => {
-
-            const token = getStoredData("userToken")
-          
-            const settings = { 
-            method: 'POST', 
-            headers: { 
-                "Content-Type": "application/json", 
-                "auth-token": token },
-            };
-        
-            try {
-                const fetchResponse = await fetch(`http://localhost:8000/users/validate-token`, settings);
-            
-                if(fetchResponse.ok === false){
-                    setError("401")
-                }
-            
-            } catch (e) {
-                return e;
-            }
-        }
-
+      
       sendToken()
+      console.log(error)
     return(
         <>
         {(error === "401") ? <Error error={error}/> :

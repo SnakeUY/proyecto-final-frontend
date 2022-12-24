@@ -5,12 +5,9 @@ import PokemonList from '../List/PokemonList';
 import { getMyPokemons, getPokemons } from "../../Services/backend-connection";
 import { useNavigate } from "react-router-dom"
 
-function PokemonGrid ({myPokemonsList,setMyPokemonsList,logout, login, isLog, setIsLog , getStoredData, showFavorite, setShowFavorite}){
+function PokemonGrid ({myPokemonsList,setMyPokemonsList,logout, login, isLog, setIsLog , getStoredData, showFavorite, setShowFavorite, sendToken, error}){
  
     const [pokemonList,setPokemonList] = useState ([])
-
-    
-
     const [pokemonOrder,setPokemonOrder] = useState ("#")
     const [pokemonSearch, setPokemonSearch] = useState ("")
     const navigate = useNavigate()
@@ -39,9 +36,25 @@ function PokemonGrid ({myPokemonsList,setMyPokemonsList,logout, login, isLog, se
     }
   }
 
+const checkStatusToken = async () =>{
+  if(getStoredData("userToken")){
+    await sendToken()
+    console.log(error)
+    if(error === "401"){
+      logout()
+      navigate('/')
+    }
+}
+}
+
   useEffect(()=>{
     fetchData()
+    checkStatusToken()
   },[])
+
+  useEffect(()=>{
+    checkStatusToken()
+  },[error])
 
     const changeOrder = () =>{
       if (pokemonOrder === "#"){
