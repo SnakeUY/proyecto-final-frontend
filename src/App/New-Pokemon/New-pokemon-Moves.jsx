@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getMoves } from "../../services/backend-connection";
+import { getMoves } from "../../Services/backend-connection";
 const PokeMoves = ({text,moves,setMoves}) =>{
     
     const [pokeMoves, setPokeMoves] = useState([])

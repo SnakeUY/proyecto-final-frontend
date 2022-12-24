@@ -3,7 +3,7 @@ import { PokeTypes } from "./New-pokemon-Types"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { PokeMoves } from "./New-pokemon-Moves";
-import { addMoney, addPokemon, getPokemonById } from "../../services/backend-connection"
+import { addMoney, addPokemon, getPokemonById } from "../../Services/backend-connection"
 import Error from "../Error/Error";
 
 const NewPokemonForm = ({getStoredData,sendToken,error}) =>{
