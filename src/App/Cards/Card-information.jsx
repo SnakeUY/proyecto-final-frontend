@@ -6,7 +6,7 @@ import Loader from "../Loader/Loader";
 import Moves from "./Moves";
 import TableType from "./Table-type";
 import { useReducer } from "react";
-
+import Error from "../Error/Error";
 const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPokemonsList}) =>{
     const [state,setState] = useReducer((state,newState)=>{return{...state,...newState}},{isLoading:true})
     const id = useParams().id
@@ -57,6 +57,8 @@ const CardInformation = ({getStoredData, showFavorite, setMyPokemonsList, myPoke
     
             if(myPokemonsList.includes(state.pokemon.id)){
                 setIsFav(true)
+            }else{
+                setIsFav(false)
             }
 
         }
